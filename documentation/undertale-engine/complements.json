@@ -1,0 +1,18 @@
+[
+    {
+        "id": "shop-system",
+        "sourceUrl": "https://github.com/TML233/UndertaleEngine",
+        "apiReference": "shop-system-api.json",
+        "guides": [
+            "getting-started",
+            "shop-config",
+            "items",
+            "talk",
+            "callbacks",
+            "audio-ui",
+            "navigation",
+            "troubleshooting",
+            "runtime-status"
+        ]
+    }
+]

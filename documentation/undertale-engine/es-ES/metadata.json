@@ -1,0 +1,78 @@
+{
+    "guides": {
+        "engine-overview": {
+            "eyebrow": "Fundamentos",
+            "description": "Entiende la arquitectura, los recursos editables y el orden de inicio de la engine."
+        },
+        "getting-started": {
+            "eyebrow": "Empieza aquí",
+            "description": "Prepara el proyecto, configura tu juego y construye el primer mapa jugable."
+        },
+        "overworld-rooms-and-npcs": {
+            "eyebrow": "Personajes",
+            "description": "Crea NPC, interacciones, colisiones, disparadores, warps y cámaras en el overworld."
+        },
+        "items-and-inventories": {
+            "eyebrow": "Jugabilidad",
+            "description": "Registra ítems, configura inventarios, equipamiento, cajas y teléfonos."
+        },
+        "enemies-encounters-and-battles": {
+            "eyebrow": "Combate",
+            "description": "Implementa encuentros, enemigos, ACT, turnos, almas, balas y recompensas."
+        },
+        "dialogues-text-and-localization": {
+            "eyebrow": "Narrativa",
+            "description": "Escribe diálogos, elecciones, efectos de texto y traducciones organizadas."
+        },
+        "engine-systems": {
+            "eyebrow": "Sistemas",
+            "description": "Usa guardados, almacenamiento, audio, entrada, animaciones, cámara y demos."
+        },
+        "api-reference": {
+            "eyebrow": "Consulta",
+            "description": "Consulta el listado técnico consolidado de las funciones y constructores de la engine."
+        },
+        "objects-events-enums-and-macros": {
+            "eyebrow": "Referencia",
+            "description": "Consulta objetos base, eventos, macros, enums y puntos de extensión."
+        },
+        "recipes-and-troubleshooting": {
+            "eyebrow": "Soluciones",
+            "description": "Aplica recetas listas y diagnostica los errores más comunes del proyecto."
+        }
+    },
+    "systems": {
+        "defining-enemies": {
+            "eyebrow": "Sistema de batalla",
+            "description": "Define enemigos, vida propia, ACT, daño, eventos y recompensas sin concentrarlo todo en un solo evento."
+        },
+        "bullet-patterns": {
+            "eyebrow": "Turnos defensivos",
+            "description": "Separa el controlador de turno, los proyectiles, la colisión, el daño, el frame y la limpieza de los patrones de ataque."
+        },
+        "health-healing-and-damage": {
+            "eyebrow": "Combate",
+            "description": "Entiende el HP del jugador, la vida personalizada de enemigos, la curación, la defensa y el cálculo de daño."
+        }
+    },
+    "categoryDescriptions": {
+        "Animaciones": "Animaciones, tweens y temporización.",
+        "Patrones de bala": "Proyectiles, colisiones, alma, creación y limpieza de los turnos defensivos.",
+        "Enemigos": "Definición del enemigo, eventos, ACT, MERCY, defensa y slots.",
+        "Vida y daño": "HP, curación, daño, atributos, progresión y recompensas.",
+        "Ítems e inventarios": "Tipos de ítem, inventarios, equipamiento y registros.",
+        "Batalla": "Estados, menús, turnos, frame y flujo central de la batalla.",
+        "Encuentros": "Registro de formaciones e inicio de las batallas.",
+        "Jugador": "Datos, equipamiento, historia y estado del jugador.",
+        "Diálogos y texto": "Cola de frases, elecciones, comandos y renderizado de texto.",
+        "Localización": "Idiomas, cadenas y recursos localizados.",
+        "Guardados y datos": "Zonas de almacenamiento, persistencia y guardado/carga.",
+        "Audio": "Músicas, slots y control de reproducción.",
+        "Entrada": "Acciones, binds, teclado y gamepad.",
+        "Efectos visuales": "Fades, bordes, sacudidas y transiciones.",
+        "Cámara y pantalla": "Encuadre, transformación y coordenadas.",
+        "Estructuras y gestores": "Constructores y estructuras reutilizables de la engine.",
+        "Demos y replay": "Grabación y reproducción de entradas.",
+        "Utilidades": "Funciones auxiliares usadas por los demás sistemas."
+    }
+}

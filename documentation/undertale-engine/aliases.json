@@ -1,0 +1,19 @@
+{
+    "guides": {
+        "visao-geral": "engine-overview",
+        "primeiros-passos": "getting-started",
+        "overworld-e-npcs": "overworld-rooms-and-npcs",
+        "itens-e-inventarios": "items-and-inventories",
+        "inimigos-e-batalhas": "enemies-encounters-and-battles",
+        "dialogos-e-localizacao": "dialogues-text-and-localization",
+        "sistemas-da-engine": "engine-systems",
+        "referencia-da-api": "api-reference",
+        "objetos-eventos-e-macros": "objects-events-enums-and-macros",
+        "receitas-e-problemas": "recipes-and-troubleshooting"
+    },
+    "systems": {
+        "definir-inimigos": "defining-enemies",
+        "padroes-de-bala": "bullet-patterns",
+        "vida-e-dano": "health-healing-and-damage"
+    }
+}

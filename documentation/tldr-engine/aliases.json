@@ -1,0 +1,13 @@
+{
+    "guides": {
+        "visao-geral": "engine-overview",
+        "primeiros-passos": "getting-started",
+        "estrutura-e-padroes": "project-structure-and-standards",
+        "sistema-de-party": "party-system",
+        "cutscenes": "cutscenes",
+        "batalhas": "battles",
+        "atualizando-a-engine": "updating",
+        "efeitos-de-texto": "inline-text-effects",
+        "referencia-da-api": "api-reference"
+    }
+}

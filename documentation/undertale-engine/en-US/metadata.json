@@ -1,0 +1,78 @@
+{
+    "guides": {
+        "engine-overview": {
+            "eyebrow": "Fundamentals",
+            "description": "Understand the architecture, editable resources, and boot order of the engine."
+        },
+        "getting-started": {
+            "eyebrow": "Start here",
+            "description": "Set up the project, configure your game, and build your first playable map."
+        },
+        "overworld-rooms-and-npcs": {
+            "eyebrow": "Characters",
+            "description": "Create NPCs, interactions, collisions, triggers, warps, and cameras in the overworld."
+        },
+        "items-and-inventories": {
+            "eyebrow": "Gameplay",
+            "description": "Register items, configure inventories, equipment, boxes, and phones."
+        },
+        "enemies-encounters-and-battles": {
+            "eyebrow": "Combat",
+            "description": "Implement encounters, enemies, ACTs, turns, souls, bullets, and rewards."
+        },
+        "dialogues-text-and-localization": {
+            "eyebrow": "Narrative",
+            "description": "Write dialogues, choices, text effects, and organized translations."
+        },
+        "engine-systems": {
+            "eyebrow": "Systems",
+            "description": "Use saves, storage, audio, input, animations, camera, and demos."
+        },
+        "api-reference": {
+            "eyebrow": "Reference",
+            "description": "See the consolidated technical listing of the engine's functions and constructors."
+        },
+        "objects-events-enums-and-macros": {
+            "eyebrow": "Reference",
+            "description": "Consult base objects, events, macros, enums, and extension points."
+        },
+        "recipes-and-troubleshooting": {
+            "eyebrow": "Solutions",
+            "description": "Apply ready-made recipes and diagnose the most common project errors."
+        }
+    },
+    "systems": {
+        "defining-enemies": {
+            "eyebrow": "Battle system",
+            "description": "Define enemies, custom health, ACTs, damage, events, and rewards without cramming everything into a single event."
+        },
+        "bullet-patterns": {
+            "eyebrow": "Defensive turns",
+            "description": "Separate the turn controller, projectiles, collision, damage, frame, and cleanup of attack patterns."
+        },
+        "health-healing-and-damage": {
+            "eyebrow": "Combat",
+            "description": "Understand player HP, custom enemy health, healing, defense, and damage calculation."
+        }
+    },
+    "categoryDescriptions": {
+        "Bullet patterns": "Projectiles, collisions, soul, creation, and cleanup of defensive turns.",
+        "Enemies": "Enemy definition, events, ACT, MERCY, defense, and slots.",
+        "Health and damage": "HP, healing, damage, attributes, progression, and rewards.",
+        "Items and inventories": "Item types, inventories, equipment, and registries.",
+        "Battle": "States, menus, turns, frame, and the core battle flow.",
+        "Encounters": "Formation registration and battle start.",
+        "Player": "Data, equipment, story, and player state.",
+        "Dialogues and text": "Line queue, choices, commands, and text rendering.",
+        "Localization": "Languages, strings, and localized resources.",
+        "Saves and data": "Storage zones, persistence, and save/load.",
+        "Audio": "Music, slots, and playback control.",
+        "Input": "Actions, binds, keyboard, and gamepad.",
+        "Animations": "Animations, tweens, and timing.",
+        "Camera and screen": "Framing, transform, and coordinates.",
+        "Visual effects": "Fades, borders, shakes, and transitions.",
+        "Structures and managers": "Reusable constructors and structures of the engine.",
+        "Demos and replay": "Input recording and playback.",
+        "Utilities": "Helper functions used by the other systems."
+    }
+}

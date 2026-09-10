@@ -1,0 +1,79 @@
+{
+    "title": "tlDR Engine",
+    "subtitle": "documentation w.i.p",
+    "order": 2,
+    "locales": ["en-US"],
+    "githubUrl": "https://github.com/tweenko/tldr-engine",
+    "branch": "main",
+    "source": {
+        "name": "tweenko / tlDR Engine",
+        "url": "https://docs.google.com/document/d/14SpnU32P-_HLdNS17gwaIe8Z2mO8AG1KUUGMe_hNdzM/edit"
+    },
+    "quickTopics": [
+        {
+            "icon": "users-round",
+            "labelKey": "nav.party",
+            "href": "/guides/party-system"
+        },
+        {
+            "icon": "clapperboard",
+            "labelKey": "nav.cutscenes",
+            "href": "/guides/cutscenes"
+        },
+        {
+            "icon": "swords",
+            "labelKey": "nav.battles",
+            "href": "/guides/battles"
+        }
+    ],
+    "homeTopics": [
+        {
+            "icon": "users-round",
+            "tone": "violet",
+            "titleKey": "home.topics.party.title",
+            "descriptionKey": "home.topics.party.description",
+            "href": "/guides/party-system"
+        },
+        {
+            "icon": "clapperboard",
+            "tone": "blue",
+            "titleKey": "home.topics.cutscenes.title",
+            "descriptionKey": "home.topics.cutscenes.description",
+            "href": "/guides/cutscenes"
+        },
+        {
+            "icon": "swords",
+            "tone": "amber",
+            "titleKey": "home.topics.battles.title",
+            "descriptionKey": "home.topics.battles.description",
+            "href": "/guides/battles"
+        }
+    ],
+    "homePath": [
+        {
+            "titleKey": "home.path.step1.title",
+            "descriptionKey": "home.path.step1.description",
+            "href": "/guides/getting-started"
+        },
+        {
+            "titleKey": "home.path.step2.title",
+            "descriptionKey": "home.path.step2.description",
+            "href": "/guides/project-structure-and-standards"
+        },
+        {
+            "titleKey": "home.path.step3.title",
+            "descriptionKey": "home.path.step3.description",
+            "href": "/guides/party-system"
+        },
+        {
+            "titleKey": "home.path.step4.title",
+            "descriptionKey": "home.path.step4.description",
+            "href": "/guides/cutscenes"
+        },
+        {
+            "titleKey": "home.path.step5.title",
+            "descriptionKey": "home.path.step5.description",
+            "href": "/guides/battles"
+        }
+    ]
+}

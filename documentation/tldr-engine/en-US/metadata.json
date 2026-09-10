@@ -1,0 +1,53 @@
+{
+    "guides": {
+        "engine-overview": {
+            "eyebrow": "Fundamentals",
+            "description": "Understand the engine's structure, main folders, project workflow, and the systems documented in tlDR Engine."
+        },
+        "getting-started": {
+            "eyebrow": "Start here",
+            "description": "Set up your repository, connect the upstream remote, run the base engine, and prepare your project for custom work."
+        },
+        "project-structure-and-standards": {
+            "eyebrow": "Project structure",
+            "description": "Organize custom content, understand @Engine and zzz Examples, and follow the recommended asset naming scheme."
+        },
+        "party-system": {
+            "eyebrow": "Party",
+            "description": "Create and initialize party members, access their data, and manage the active party using the documented helpers."
+        },
+        "cutscenes": {
+            "eyebrow": "Narrative",
+            "description": "Build queued cutscenes with dialogue, actor movement, waits, animations, audio, camera actions, and custom functions."
+        },
+        "battles": {
+            "eyebrow": "Combat",
+            "description": "Define enemies, ACTs, dialogue, turn objects, and the documented workflow for building battle patterns."
+        },
+        "updating": {
+            "eyebrow": "Maintenance",
+            "description": "Pull engine updates through Git, resolve merge conflicts, and keep project-specific changes easier to maintain."
+        },
+        "inline-text-effects": {
+            "eyebrow": "Text",
+            "description": "Use inline commands for line breaks, pauses, colors, indentation resets, and custom text formatting."
+        },
+        "api-reference": {
+            "eyebrow": "Reference",
+            "description": "See a consolidated reference of the party, cutscene, battle, text, and setup APIs explicitly documented by the source."
+        }
+    },
+    "systems": {},
+    "categoryDescriptions": {
+        "Party system": "Party member constructors, initialization, active-party names, data access, and membership changes.",
+        "Cutscenes": "Queued actions, dialogue, movement, waits, animations, audio, camera control, and custom cutscene functions.",
+        "Battles": "Enemy objects, constructors, ACTs, mercy, dialogue, turn objects, and bullet-pattern workflow.",
+        "Enemy constructors": "Documented enemy fields such as stats, ACTs, dialogue, sprites, mercy, recruits, and turn objects.",
+        "Battle turns": "Turn objects, attack timing, and the example-based workflow for defensive bullet patterns.",
+        "Inline text": "Line breaks, pauses, colors, indentation resets, and inline command syntax.",
+        "Project structure": "Engine-owned folders, example content, custom scripts, asset prefixes, and naming conventions.",
+        "Git and updates": "Repository setup, upstream remotes, pulls, merge conflicts, and update workflow.",
+        "Engine setup": "Initial repository creation, base-engine testing, example exploration, and first project changes.",
+        "Utilities": "Helper functions and supporting APIs referenced by the documented systems."
+    }
+}

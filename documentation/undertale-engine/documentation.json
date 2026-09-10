@@ -1,0 +1,78 @@
+{
+    "title": "Undertale Engine",
+    "subtitle": "Documentação por kazwtto",
+    "order": 1,
+    "locales": ["pt-BR", "en-US", "es-ES"],
+    "githubUrl": "https://github.com/TML233/UndertaleEngine",
+    "branch": "master",
+    "source": {
+        "name": "TML233 / Undertale Engine",
+        "url": "https://tml233.github.io/UndertaleEngine/#/"
+    },
+    "stats": {
+        "objects": 58,
+        "commands": 49
+    },
+    "quickTopics": [
+        {
+            "icon": "user-round",
+            "labelKey": "nav.npcs",
+            "href": "/guides/overworld-rooms-and-npcs"
+        },
+        {
+            "icon": "package",
+            "labelKey": "nav.items",
+            "href": "/guides/items-and-inventories"
+        },
+        {
+            "icon": "shield-question",
+            "labelKey": "nav.enemies",
+            "href": "/guides/enemies-encounters-and-battles"
+        }
+    ],
+    "homeTopics": [
+        {
+            "icon": "package",
+            "tone": "violet",
+            "titleKey": "home.topics.items.title",
+            "descriptionKey": "home.topics.items.description",
+            "href": "/guides/items-and-inventories"
+        },
+        {
+            "icon": "user-round",
+            "tone": "blue",
+            "titleKey": "home.topics.npcs.title",
+            "descriptionKey": "home.topics.npcs.description",
+            "href": "/guides/overworld-rooms-and-npcs"
+        },
+        {
+            "icon": "shield-question",
+            "tone": "amber",
+            "titleKey": "home.topics.enemies.title",
+            "descriptionKey": "home.topics.enemies.description",
+            "href": "/systems/defining-enemies"
+        }
+    ],
+    "homePath": [
+        {
+            "titleKey": "home.path.step1.title",
+            "descriptionKey": "home.path.step1.description",
+            "href": "/guides/getting-started"
+        },
+        {
+            "titleKey": "home.path.step2.title",
+            "descriptionKey": "home.path.step2.description",
+            "href": "/guides/overworld-rooms-and-npcs"
+        },
+        {
+            "titleKey": "home.path.step3.title",
+            "descriptionKey": "home.path.step3.description",
+            "href": "/guides/enemies-encounters-and-battles"
+        },
+        {
+            "titleKey": "home.path.step4.title",
+            "descriptionKey": "home.path.step4.description",
+            "href": "/guides/engine-systems"
+        }
+    ]
+}

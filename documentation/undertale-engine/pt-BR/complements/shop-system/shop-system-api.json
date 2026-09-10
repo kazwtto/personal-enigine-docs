@@ -1,0 +1,3511 @@
+{
+    "locale": "pt-BR",
+    "generatedAt": "2026-08-08T20:40:00-03:00",
+    "engineVersion": "0.6.0",
+    "engineCommit": "f2567090eac73dd959d9ae05a1ad2ad9ff6b5385",
+    "sourceRepository": "https://github.com/TML233/UndertaleEngine",
+    "count": 113,
+    "entries": [
+        {
+            "slug": "shop-hex-digit-value",
+            "name": "Shop_HexDigitValue",
+            "signature": "Shop_HexDigitValue(_char)",
+            "kind": "função",
+            "category": "Utilitários",
+            "subcategory": "Cores",
+            "summary": "converte um dígito hexadecimal para número",
+            "purpose": "Auxiliar interno usado na conversão de cores hexadecimais.",
+            "whenToUse": "Normalmente não é chamado diretamente ao criar uma loja.",
+            "parameters": [
+                {
+                    "name": "char",
+                    "type": "string",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `char` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "integer",
+                "description": "Valor de 0 a 15, ou -1 se inválido."
+            },
+            "sideEffects": [
+                "Não possui efeitos colaterais relevantes além do valor retornado."
+            ],
+            "notes": [],
+            "example": "var _value = Shop_HexDigitValue(\"F\");",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-resolve-color",
+            "name": "Shop_ResolveColor",
+            "signature": "Shop_ResolveColor(_value, _fallback = c_white)",
+            "kind": "função",
+            "category": "Utilitários",
+            "subcategory": "Cores",
+            "summary": "normaliza cores aceitas pela loja",
+            "purpose": "Converter cores GML, nomes, RGB e hexadecimal para uma cor válida do GameMaker.",
+            "whenToUse": "Use quando precisar converter manualmente um valor de cor.",
+            "parameters": [
+                {
+                    "name": "value",
+                    "type": "any",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `value` usado por esta operação do Shop System."
+                },
+                {
+                    "name": "fallback",
+                    "type": "color",
+                    "required": false,
+                    "defaultValue": "c_white",
+                    "description": "Valor de `fallback` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "color",
+                "description": "Cor GameMaker normalizada."
+            },
+            "sideEffects": [
+                "Não possui efeitos colaterais relevantes além do valor retornado."
+            ],
+            "notes": [],
+            "example": "var _color = Shop_ResolveColor(\"#DC143C\");",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-normalize-pages",
+            "name": "Shop_NormalizePages",
+            "signature": "Shop_NormalizePages(_pages)",
+            "kind": "função",
+            "category": "Utilitários",
+            "subcategory": "Diálogo",
+            "summary": "normaliza texto/páginas para array",
+            "purpose": "Garantir que páginas de diálogo sejam armazenadas como array.",
+            "whenToUse": "Útil ao criar APIs auxiliares que aceitam string ou array.",
+            "parameters": [
+                {
+                    "name": "pages",
+                    "type": "string | array<string>",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `pages` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "array",
+                "description": "Array de páginas normalizado."
+            },
+            "sideEffects": [
+                "Não possui efeitos colaterais relevantes além do valor retornado."
+            ],
+            "notes": [],
+            "example": "var _pages = Shop_NormalizePages(\"* Hello.\");",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-goto",
+            "name": "Shop_Goto",
+            "signature": "Shop_Goto(_shop_room)",
+            "kind": "função",
+            "category": "Entrada e saída",
+            "subcategory": "Navegação de rooms",
+            "summary": "salva a room atual e entra na loja",
+            "purpose": "Registrar a room de retorno antes de ir para a room da loja.",
+            "whenToUse": "Use no lugar de room_goto(room_shop) quando quiser retorno automático.",
+            "parameters": [
+                {
+                    "name": "shop_room",
+                    "type": "room asset",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `shop_room` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "undefined",
+                "description": "Não possui retorno relevante para configuração."
+            },
+            "sideEffects": [
+                "Lê ou altera estado global do Shop System.",
+                "Troca a room atual."
+            ],
+            "notes": [
+                "Use esta função para retorno automático real à room visitada antes da loja."
+            ],
+            "example": "Shop_Goto(room_shop);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-remember-return-room",
+            "name": "Shop_RememberReturnRoom",
+            "signature": "Shop_RememberReturnRoom()",
+            "kind": "função",
+            "category": "Entrada e saída",
+            "subcategory": "Navegação de rooms",
+            "summary": "salva a room atual como retorno",
+            "purpose": "Memorizar a room de origem sem executar a transição.",
+            "whenToUse": "Use quando sua engine possui transição própria.",
+            "parameters": [],
+            "returns": {
+                "type": "room asset",
+                "description": "A room atual, após armazená-la como retorno."
+            },
+            "sideEffects": ["Lê ou altera estado global do Shop System."],
+            "notes": [],
+            "example": "Shop_RememberReturnRoom();\nroom_goto(room_shop);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-get-return-room",
+            "name": "Shop_GetReturnRoom",
+            "signature": "Shop_GetReturnRoom()",
+            "kind": "função",
+            "category": "Entrada e saída",
+            "subcategory": "Navegação de rooms",
+            "summary": "obtém a room de retorno memorizada",
+            "purpose": "Consultar a room armazenada pelo Shop System.",
+            "whenToUse": "Use em callbacks ou transições personalizadas.",
+            "parameters": [],
+            "returns": {
+                "type": "room asset | noone",
+                "description": "Room lembrada ou `noone`."
+            },
+            "sideEffects": [
+                "Não possui efeitos colaterais relevantes além do valor retornado."
+            ],
+            "notes": [],
+            "example": "var _room = Shop_GetReturnRoom();",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-clear-return-room",
+            "name": "Shop_ClearReturnRoom",
+            "signature": "Shop_ClearReturnRoom()",
+            "kind": "função",
+            "category": "Entrada e saída",
+            "subcategory": "Navegação de rooms",
+            "summary": "limpa a room de retorno memorizada",
+            "purpose": "Remover a room de retorno registrada.",
+            "whenToUse": "Use quando quiser invalidar o retorno automático.",
+            "parameters": [],
+            "returns": {
+                "type": "undefined",
+                "description": "Não possui retorno relevante para configuração."
+            },
+            "sideEffects": ["Lê ou altera estado global do Shop System."],
+            "notes": [],
+            "example": "Shop_ClearReturnRoom();",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-layout",
+            "name": "ShopLayout",
+            "signature": "ShopLayout()",
+            "kind": "construtor",
+            "category": "Estruturas",
+            "subcategory": "Layout",
+            "summary": "cria o layout padrão 320x240",
+            "purpose": "Criar a estrutura com coordenadas e medidas usadas pela UI da loja.",
+            "whenToUse": "Use para customizar posições sem alterar o Draw.",
+            "parameters": [],
+            "returns": {
+                "type": "ShopLayout",
+                "description": "Nova estrutura `ShopLayout`."
+            },
+            "sideEffects": [
+                "Não possui efeitos colaterais relevantes além do valor retornado."
+            ],
+            "notes": [],
+            "example": "var _layout = new ShopLayout();",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-item",
+            "name": "ShopItem",
+            "signature": "ShopItem(_item_id, _price, _description = \"\", _stock = -1, _sell_price = -1, _color = c_white, _buy_sound = -1, _on_purchased = undefined)",
+            "kind": "construtor",
+            "category": "Estruturas",
+            "subcategory": "Itens",
+            "summary": "cria uma entrada de item para compra",
+            "purpose": "Definir item, preço, descrição, estoque, cor, som e callback de compra.",
+            "whenToUse": "Use para cada item ou serviço listado em Buy.",
+            "parameters": [
+                {
+                    "name": "item_id",
+                    "type": "string | item type id",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `item_id` usado por esta operação do Shop System."
+                },
+                {
+                    "name": "price",
+                    "type": "real",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `price` usado por esta operação do Shop System."
+                },
+                {
+                    "name": "description",
+                    "type": "string",
+                    "required": false,
+                    "defaultValue": "\"\"",
+                    "description": "Valor de `description` usado por esta operação do Shop System."
+                },
+                {
+                    "name": "stock",
+                    "type": "integer",
+                    "required": false,
+                    "defaultValue": "-1",
+                    "description": "Valor de `stock` usado por esta operação do Shop System."
+                },
+                {
+                    "name": "sell_price",
+                    "type": "real",
+                    "required": false,
+                    "defaultValue": "-1",
+                    "description": "Valor de `sell_price` usado por esta operação do Shop System."
+                },
+                {
+                    "name": "color",
+                    "type": "color | string | array<real>",
+                    "required": false,
+                    "defaultValue": "c_white",
+                    "description": "Valor de `color` usado por esta operação do Shop System."
+                },
+                {
+                    "name": "buy_sound",
+                    "type": "audio asset | -1",
+                    "required": false,
+                    "defaultValue": "-1",
+                    "description": "Valor de `buy_sound` usado por esta operação do Shop System."
+                },
+                {
+                    "name": "on_purchased",
+                    "type": "function | undefined",
+                    "required": false,
+                    "defaultValue": "undefined",
+                    "description": "Valor de `on_purchased` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopItem",
+                "description": "Nova estrutura `ShopItem`."
+            },
+            "sideEffects": [
+                "Não possui efeitos colaterais relevantes além do valor retornado."
+            ],
+            "notes": [],
+            "example": "var _item = new ShopItem(ITEM_EGG, 0, \"The EGG.\", 1, -1, \"#DC143C\", snd_ominous);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-topic",
+            "name": "ShopTopic",
+            "signature": "ShopTopic(_label, _pages, _id = \"\")",
+            "kind": "construtor",
+            "category": "Estruturas",
+            "subcategory": "Conversa",
+            "summary": "cria um tópico de conversa",
+            "purpose": "Definir uma opção do menu Talk e suas páginas de diálogo.",
+            "whenToUse": "Use para cada assunto disponível em Talk.",
+            "parameters": [
+                {
+                    "name": "label",
+                    "type": "string",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `label` usado por esta operação do Shop System."
+                },
+                {
+                    "name": "pages",
+                    "type": "string | array<string>",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `pages` usado por esta operação do Shop System."
+                },
+                {
+                    "name": "id",
+                    "type": "string",
+                    "required": false,
+                    "defaultValue": "\"\"",
+                    "description": "Valor de `id` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopTopic",
+                "description": "Nova estrutura `ShopTopic`."
+            },
+            "sideEffects": [
+                "Não possui efeitos colaterais relevantes além do valor retornado."
+            ],
+            "notes": [],
+            "example": "var _topic = new ShopTopic(\"About\", [\"* Hello.\"], \"about\");",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-config",
+            "name": "ShopConfig",
+            "signature": "ShopConfig()",
+            "kind": "construtor",
+            "category": "Estruturas",
+            "subcategory": "Configuração",
+            "summary": "cria a configuração completa de uma loja",
+            "purpose": "Centralizar conteúdo, textos, áudio, callbacks, layout e comportamento da loja.",
+            "whenToUse": "Crie uma instância no Room Creation Code.",
+            "parameters": [],
+            "returns": {
+                "type": "ShopConfig",
+                "description": "Nova estrutura `ShopConfig`."
+            },
+            "sideEffects": [
+                "Não possui efeitos colaterais relevantes além do valor retornado."
+            ],
+            "notes": [],
+            "example": "var _shop = new ShopConfig();",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-open",
+            "name": "Shop_Open",
+            "signature": "Shop_Open(_config = undefined)",
+            "kind": "função",
+            "category": "Entrada e saída",
+            "subcategory": "Inicialização",
+            "summary": "instancia ui_shop com uma configuração",
+            "purpose": "Abrir o runtime da loja usando um ShopConfig.",
+            "whenToUse": "Chame ao final do Room Creation Code depois de configurar a loja.",
+            "parameters": [
+                {
+                    "name": "config",
+                    "type": "ShopConfig | undefined",
+                    "required": false,
+                    "defaultValue": "undefined",
+                    "description": "Valor de `config` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ui_shop instance",
+                "description": "Instância runtime da loja criada."
+            },
+            "sideEffects": ["Cria uma instância `ui_shop`."],
+            "notes": [],
+            "example": "Shop_Open(_shop);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-item-set-name",
+            "name": "ShopItem.SetName",
+            "signature": "ShopItem.SetName(_value)",
+            "kind": "método",
+            "category": "Itens",
+            "subcategory": "Dados",
+            "summary": "define nome exibido do item",
+            "purpose": "Sobrescrever o nome localizado/resolvido automaticamente.",
+            "whenToUse": "Use quando a loja deve mostrar um nome específico.",
+            "parameters": [
+                {
+                    "name": "value",
+                    "type": "any",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `value` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopItem",
+                "description": "O próprio `ShopItem` para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopItem`."],
+            "notes": [],
+            "example": "_shopitem.SetName(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-item-set-price",
+            "name": "ShopItem.SetPrice",
+            "signature": "ShopItem.SetPrice(_value)",
+            "kind": "método",
+            "category": "Itens",
+            "subcategory": "Dados",
+            "summary": "define preço base de compra",
+            "purpose": "Alterar o preço fixo do item.",
+            "whenToUse": "Use para configuração encadeada.",
+            "parameters": [
+                {
+                    "name": "value",
+                    "type": "any",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `value` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopItem",
+                "description": "O próprio `ShopItem` para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopItem`."],
+            "notes": [],
+            "example": "_shopitem.SetPrice(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-item-set-description",
+            "name": "ShopItem.SetDescription",
+            "signature": "ShopItem.SetDescription(_value)",
+            "kind": "método",
+            "category": "Itens",
+            "subcategory": "Dados",
+            "summary": "define descrição do item",
+            "purpose": "Alterar o texto do painel de descrição.",
+            "whenToUse": "Use para configuração encadeada.",
+            "parameters": [
+                {
+                    "name": "value",
+                    "type": "any",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `value` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopItem",
+                "description": "O próprio `ShopItem` para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopItem`."],
+            "notes": [],
+            "example": "_shopitem.SetDescription(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-item-set-stock",
+            "name": "ShopItem.SetStock",
+            "signature": "ShopItem.SetStock(_value)",
+            "kind": "método",
+            "category": "Itens",
+            "subcategory": "Estoque",
+            "summary": "define estoque",
+            "purpose": "Definir quantidade disponível; -1 representa estoque infinito.",
+            "whenToUse": "Use para itens limitados ou infinitos.",
+            "parameters": [
+                {
+                    "name": "value",
+                    "type": "any",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `value` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopItem",
+                "description": "O próprio `ShopItem` para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopItem`."],
+            "notes": [],
+            "example": "_shopitem.SetStock(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-item-set-sell-price",
+            "name": "ShopItem.SetSellPrice",
+            "signature": "ShopItem.SetSellPrice(_value)",
+            "kind": "método",
+            "category": "Itens",
+            "subcategory": "Venda",
+            "summary": "define preço de revenda",
+            "purpose": "Definir quanto o item vale no menu Sell.",
+            "whenToUse": "Use quando não quiser o padrão de metade do preço.",
+            "parameters": [
+                {
+                    "name": "value",
+                    "type": "any",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `value` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopItem",
+                "description": "O próprio `ShopItem` para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopItem`."],
+            "notes": [],
+            "example": "_shopitem.SetSellPrice(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-item-set-visible",
+            "name": "ShopItem.SetVisible",
+            "signature": "ShopItem.SetVisible(_value = true)",
+            "kind": "método",
+            "category": "Itens",
+            "subcategory": "Estado",
+            "summary": "define visibilidade do item",
+            "purpose": "Mostrar ou ocultar a entrada de Buy.",
+            "whenToUse": "Use para itens condicionais.",
+            "parameters": [
+                {
+                    "name": "value",
+                    "type": "any",
+                    "required": false,
+                    "defaultValue": "true",
+                    "description": "Valor de `value` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopItem",
+                "description": "O próprio `ShopItem` para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopItem`."],
+            "notes": [],
+            "example": "_shopitem.SetVisible(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-item-set-enabled",
+            "name": "ShopItem.SetEnabled",
+            "signature": "ShopItem.SetEnabled(_value = true)",
+            "kind": "método",
+            "category": "Itens",
+            "subcategory": "Estado",
+            "summary": "define se o item pode ser comprado",
+            "purpose": "Permitir ou impedir a compra sem necessariamente removê-lo.",
+            "whenToUse": "Use para disponibilidade dinâmica.",
+            "parameters": [
+                {
+                    "name": "value",
+                    "type": "any",
+                    "required": false,
+                    "defaultValue": "true",
+                    "description": "Valor de `value` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopItem",
+                "description": "O próprio `ShopItem` para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopItem`."],
+            "notes": [],
+            "example": "_shopitem.SetEnabled(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-item-set-delivers-item",
+            "name": "ShopItem.SetDeliversItem",
+            "signature": "ShopItem.SetDeliversItem(_value = true)",
+            "kind": "método",
+            "category": "Itens",
+            "subcategory": "Compra",
+            "summary": "define se a compra entrega item",
+            "purpose": "Permitir serviços/compras que não inserem um item no inventário.",
+            "whenToUse": "Use para eventos, serviços ou upgrades.",
+            "parameters": [
+                {
+                    "name": "value",
+                    "type": "any",
+                    "required": false,
+                    "defaultValue": "true",
+                    "description": "Valor de `value` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopItem",
+                "description": "O próprio `ShopItem` para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopItem`."],
+            "notes": [],
+            "example": "_shopitem.SetDeliversItem(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-item-set-purchase-thanks",
+            "name": "ShopItem.SetPurchaseThanks",
+            "signature": "ShopItem.SetPurchaseThanks(_text)",
+            "kind": "método",
+            "category": "Itens",
+            "subcategory": "Textos",
+            "summary": "define agradecimento específico do item",
+            "purpose": "Sobrescrever o texto pós-compra apenas para este item.",
+            "whenToUse": "Use quando um item possui reação própria.",
+            "parameters": [
+                {
+                    "name": "text",
+                    "type": "string",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `text` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopItem",
+                "description": "O próprio `ShopItem` para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopItem`."],
+            "notes": [],
+            "example": "_shopitem.SetPurchaseThanks(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-item-set-color",
+            "name": "ShopItem.SetColor",
+            "signature": "ShopItem.SetColor(_normal, _sold_out = undefined)",
+            "kind": "método",
+            "category": "Itens",
+            "subcategory": "Aparência",
+            "summary": "define cor normal e de indisponível",
+            "purpose": "Personalizar a cor da linha do item.",
+            "whenToUse": "Use para destacar itens.",
+            "parameters": [
+                {
+                    "name": "normal",
+                    "type": "color | string | array<real>",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `normal` usado por esta operação do Shop System."
+                },
+                {
+                    "name": "sold_out",
+                    "type": "color | string | array<real> | undefined",
+                    "required": false,
+                    "defaultValue": "undefined",
+                    "description": "Valor de `sold_out` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopItem",
+                "description": "O próprio `ShopItem` para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopItem`."],
+            "notes": [],
+            "example": "_item.SetColor(\"#DC143C\");",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-item-set-buy-sound",
+            "name": "ShopItem.SetBuySound",
+            "signature": "ShopItem.SetBuySound(_sound)",
+            "kind": "método",
+            "category": "Itens",
+            "subcategory": "Áudio",
+            "summary": "define som da compra deste item",
+            "purpose": "Sobrescrever o som tocado após compra bem-sucedida.",
+            "whenToUse": "Use para itens especiais.",
+            "parameters": [
+                {
+                    "name": "sound",
+                    "type": "audio asset | -1 | undefined",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `sound` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopItem",
+                "description": "O próprio `ShopItem` para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopItem`."],
+            "notes": [],
+            "example": "_shopitem.SetBuySound(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-item-set-get-price",
+            "name": "ShopItem.SetGetPrice",
+            "signature": "ShopItem.SetGetPrice(_callback)",
+            "kind": "método",
+            "category": "Itens",
+            "subcategory": "Callbacks dinâmicos",
+            "summary": "define callback de preço",
+            "purpose": "Calcular preço em tempo de execução.",
+            "whenToUse": "Use quando preço depende do estado do jogo.",
+            "parameters": [
+                {
+                    "name": "callback",
+                    "type": "function | undefined",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `callback` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopItem",
+                "description": "O próprio `ShopItem` para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopItem`."],
+            "notes": [],
+            "example": "_shopitem.SetGetPrice(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-item-set-get-name",
+            "name": "ShopItem.SetGetName",
+            "signature": "ShopItem.SetGetName(_callback)",
+            "kind": "método",
+            "category": "Itens",
+            "subcategory": "Callbacks dinâmicos",
+            "summary": "define callback de nome",
+            "purpose": "Calcular nome exibido em tempo de execução.",
+            "whenToUse": "Use para nomes condicionais.",
+            "parameters": [
+                {
+                    "name": "callback",
+                    "type": "function | undefined",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `callback` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopItem",
+                "description": "O próprio `ShopItem` para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopItem`."],
+            "notes": [],
+            "example": "_shopitem.SetGetName(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-item-set-get-description",
+            "name": "ShopItem.SetGetDescription",
+            "signature": "ShopItem.SetGetDescription(_callback)",
+            "kind": "método",
+            "category": "Itens",
+            "subcategory": "Callbacks dinâmicos",
+            "summary": "define callback de descrição",
+            "purpose": "Calcular descrição em tempo de execução.",
+            "whenToUse": "Use para descrições condicionais.",
+            "parameters": [
+                {
+                    "name": "callback",
+                    "type": "function | undefined",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `callback` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopItem",
+                "description": "O próprio `ShopItem` para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopItem`."],
+            "notes": [],
+            "example": "_shopitem.SetGetDescription(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-item-set-get-visible",
+            "name": "ShopItem.SetGetVisible",
+            "signature": "ShopItem.SetGetVisible(_callback)",
+            "kind": "método",
+            "category": "Itens",
+            "subcategory": "Callbacks dinâmicos",
+            "summary": "define callback de visibilidade",
+            "purpose": "Decidir dinamicamente se o item aparece.",
+            "whenToUse": "Use para desbloqueios condicionais.",
+            "parameters": [
+                {
+                    "name": "callback",
+                    "type": "function | undefined",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `callback` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopItem",
+                "description": "O próprio `ShopItem` para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopItem`."],
+            "notes": [],
+            "example": "_shopitem.SetGetVisible(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-item-set-get-enabled",
+            "name": "ShopItem.SetGetEnabled",
+            "signature": "ShopItem.SetGetEnabled(_callback)",
+            "kind": "método",
+            "category": "Itens",
+            "subcategory": "Callbacks dinâmicos",
+            "summary": "define callback de disponibilidade",
+            "purpose": "Decidir dinamicamente se o item pode ser comprado.",
+            "whenToUse": "Use para requisitos de compra.",
+            "parameters": [
+                {
+                    "name": "callback",
+                    "type": "function | undefined",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `callback` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopItem",
+                "description": "O próprio `ShopItem` para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopItem`."],
+            "notes": [],
+            "example": "_shopitem.SetGetEnabled(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-item-set-format-line",
+            "name": "ShopItem.SetFormatLine",
+            "signature": "ShopItem.SetFormatLine(_callback)",
+            "kind": "método",
+            "category": "Itens",
+            "subcategory": "Formatação",
+            "summary": "define callback da linha de Buy",
+            "purpose": "Customizar completamente o texto mostrado na lista de compra.",
+            "whenToUse": "Use para formatos de preço/nome especiais.",
+            "parameters": [
+                {
+                    "name": "callback",
+                    "type": "function | undefined",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `callback` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopItem",
+                "description": "O próprio `ShopItem` para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopItem`."],
+            "notes": [],
+            "example": "_shopitem.SetFormatLine(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-item-set-on-buy",
+            "name": "ShopItem.SetOnBuy",
+            "signature": "ShopItem.SetOnBuy(_callback)",
+            "kind": "método",
+            "category": "Itens",
+            "subcategory": "Callbacks",
+            "summary": "define callback pré-compra",
+            "purpose": "Executar lógica antes da conclusão; o runtime atual pode usar false para cancelar.",
+            "whenToUse": "Use para validações ou lógica prévia.",
+            "parameters": [
+                {
+                    "name": "callback",
+                    "type": "function | undefined",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `callback` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopItem",
+                "description": "O próprio `ShopItem` para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopItem`."],
+            "notes": [],
+            "example": "_shopitem.SetOnBuy(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-item-set-on-purchased",
+            "name": "ShopItem.SetOnPurchased",
+            "signature": "ShopItem.SetOnPurchased(_callback)",
+            "kind": "método",
+            "category": "Itens",
+            "subcategory": "Callbacks",
+            "summary": "define callback pós-compra",
+            "purpose": "Executar lógica somente após uma compra bem-sucedida.",
+            "whenToUse": "Use para flags, eventos e mudanças de estado.",
+            "parameters": [
+                {
+                    "name": "callback",
+                    "type": "function | undefined",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `callback` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopItem",
+                "description": "O próprio `ShopItem` para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopItem`."],
+            "notes": [],
+            "example": "_item.SetOnPurchased(function(_shop_instance, _item, _price) {\n    global.bought_item = true;\n});",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-topic-set-id",
+            "name": "ShopTopic.SetID",
+            "signature": "ShopTopic.SetID(_value)",
+            "kind": "método",
+            "category": "Conversa",
+            "subcategory": "Identificação",
+            "summary": "define ID do tópico",
+            "purpose": "Dar uma chave estável ao tópico para busca/substituição.",
+            "whenToUse": "Use com FindTopic/ReplaceTopic.",
+            "parameters": [
+                {
+                    "name": "value",
+                    "type": "any",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `value` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopTopic",
+                "description": "O próprio `ShopTopic` para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopTopic`."],
+            "notes": [],
+            "example": "_shoptopic.SetID(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-topic-set-label",
+            "name": "ShopTopic.SetLabel",
+            "signature": "ShopTopic.SetLabel(_value)",
+            "kind": "método",
+            "category": "Conversa",
+            "subcategory": "Texto",
+            "summary": "define título do tópico",
+            "purpose": "Alterar o texto exibido no menu Talk.",
+            "whenToUse": "Use para títulos customizados.",
+            "parameters": [
+                {
+                    "name": "value",
+                    "type": "any",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `value` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopTopic",
+                "description": "O próprio `ShopTopic` para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopTopic`."],
+            "notes": [],
+            "example": "_shoptopic.SetLabel(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-topic-set-pages",
+            "name": "ShopTopic.SetPages",
+            "signature": "ShopTopic.SetPages(_value)",
+            "kind": "método",
+            "category": "Conversa",
+            "subcategory": "Diálogo",
+            "summary": "define páginas do tópico",
+            "purpose": "Substituir as páginas faladas pelo tópico.",
+            "whenToUse": "Use para configurar ou atualizar diálogo.",
+            "parameters": [
+                {
+                    "name": "value",
+                    "type": "any",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `value` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopTopic",
+                "description": "O próprio `ShopTopic` para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopTopic`."],
+            "notes": [],
+            "example": "_shoptopic.SetPages(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-topic-set-visible",
+            "name": "ShopTopic.SetVisible",
+            "signature": "ShopTopic.SetVisible(_value = true)",
+            "kind": "método",
+            "category": "Conversa",
+            "subcategory": "Estado",
+            "summary": "define visibilidade do tópico",
+            "purpose": "Mostrar ou ocultar o tópico.",
+            "whenToUse": "Use para tópicos condicionais.",
+            "parameters": [
+                {
+                    "name": "value",
+                    "type": "any",
+                    "required": false,
+                    "defaultValue": "true",
+                    "description": "Valor de `value` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopTopic",
+                "description": "O próprio `ShopTopic` para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopTopic`."],
+            "notes": [],
+            "example": "_shoptopic.SetVisible(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-topic-set-enabled",
+            "name": "ShopTopic.SetEnabled",
+            "signature": "ShopTopic.SetEnabled(_value = true)",
+            "kind": "método",
+            "category": "Conversa",
+            "subcategory": "Estado",
+            "summary": "define disponibilidade do tópico",
+            "purpose": "Marcar o tópico como habilitado/desabilitado.",
+            "whenToUse": "Use para bloquear uma conversa mantendo os dados.",
+            "parameters": [
+                {
+                    "name": "value",
+                    "type": "any",
+                    "required": false,
+                    "defaultValue": "true",
+                    "description": "Valor de `value` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopTopic",
+                "description": "O próprio `ShopTopic` para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopTopic`."],
+            "notes": [],
+            "example": "_shoptopic.SetEnabled(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-topic-set-color",
+            "name": "ShopTopic.SetColor",
+            "signature": "ShopTopic.SetColor(_value)",
+            "kind": "método",
+            "category": "Conversa",
+            "subcategory": "Aparência",
+            "summary": "define cor do tópico",
+            "purpose": "Personalizar a cor do título.",
+            "whenToUse": "Use para tópicos novos/especiais.",
+            "parameters": [
+                {
+                    "name": "value",
+                    "type": "any",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `value` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopTopic",
+                "description": "O próprio `ShopTopic` para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopTopic`."],
+            "notes": [],
+            "example": "_shoptopic.SetColor(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-topic-set-suffix",
+            "name": "ShopTopic.SetSuffix",
+            "signature": "ShopTopic.SetSuffix(_value)",
+            "kind": "método",
+            "category": "Conversa",
+            "subcategory": "Texto",
+            "summary": "define sufixo do título",
+            "purpose": "Acrescentar texto como '(NEW)' ao título.",
+            "whenToUse": "Use para indicadores de estado.",
+            "parameters": [
+                {
+                    "name": "value",
+                    "type": "any",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `value` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopTopic",
+                "description": "O próprio `ShopTopic` para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopTopic`."],
+            "notes": [],
+            "example": "_shoptopic.SetSuffix(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-topic-set-dialog-sound",
+            "name": "ShopTopic.SetDialogSound",
+            "signature": "ShopTopic.SetDialogSound(_sound)",
+            "kind": "método",
+            "category": "Conversa",
+            "subcategory": "Áudio",
+            "summary": "define voz específica do tópico",
+            "purpose": "Guardar um som/voice específico para este tópico.",
+            "whenToUse": "No ui_shop atual esta propriedade ainda não é consumida automaticamente.",
+            "parameters": [
+                {
+                    "name": "sound",
+                    "type": "audio asset | -1 | undefined",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `sound` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopTopic",
+                "description": "O próprio `ShopTopic` para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopTopic`."],
+            "notes": [
+                "Declarado no ShopTopic, mas o `ui_shop` atual ainda não escolhe voice por tópico."
+            ],
+            "example": "_shoptopic.SetDialogSound(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-topic-set-get-label",
+            "name": "ShopTopic.SetGetLabel",
+            "signature": "ShopTopic.SetGetLabel(_callback)",
+            "kind": "método",
+            "category": "Conversa",
+            "subcategory": "Callbacks dinâmicos",
+            "summary": "define callback do título",
+            "purpose": "Calcular o título em tempo de execução.",
+            "whenToUse": "Use para títulos condicionais.",
+            "parameters": [
+                {
+                    "name": "callback",
+                    "type": "function | undefined",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `callback` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopTopic",
+                "description": "O próprio `ShopTopic` para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopTopic`."],
+            "notes": [],
+            "example": "_shoptopic.SetGetLabel(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-topic-set-get-pages",
+            "name": "ShopTopic.SetGetPages",
+            "signature": "ShopTopic.SetGetPages(_callback)",
+            "kind": "método",
+            "category": "Conversa",
+            "subcategory": "Callbacks dinâmicos",
+            "summary": "define callback de páginas",
+            "purpose": "Calcular páginas em tempo de execução.",
+            "whenToUse": "Use para falas dinâmicas.",
+            "parameters": [
+                {
+                    "name": "callback",
+                    "type": "function | undefined",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `callback` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopTopic",
+                "description": "O próprio `ShopTopic` para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopTopic`."],
+            "notes": [],
+            "example": "_shoptopic.SetGetPages(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-topic-set-get-visible",
+            "name": "ShopTopic.SetGetVisible",
+            "signature": "ShopTopic.SetGetVisible(_callback)",
+            "kind": "método",
+            "category": "Conversa",
+            "subcategory": "Callbacks dinâmicos",
+            "summary": "define callback de visibilidade",
+            "purpose": "Calcular se o tópico deve aparecer.",
+            "whenToUse": "Use para desbloqueios.",
+            "parameters": [
+                {
+                    "name": "callback",
+                    "type": "function | undefined",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `callback` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopTopic",
+                "description": "O próprio `ShopTopic` para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopTopic`."],
+            "notes": [],
+            "example": "_shoptopic.SetGetVisible(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-topic-set-get-enabled",
+            "name": "ShopTopic.SetGetEnabled",
+            "signature": "ShopTopic.SetGetEnabled(_callback)",
+            "kind": "método",
+            "category": "Conversa",
+            "subcategory": "Callbacks dinâmicos",
+            "summary": "define callback de disponibilidade",
+            "purpose": "Calcular se o tópico está habilitado.",
+            "whenToUse": "Use para requisitos.",
+            "parameters": [
+                {
+                    "name": "callback",
+                    "type": "function | undefined",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `callback` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopTopic",
+                "description": "O próprio `ShopTopic` para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopTopic`."],
+            "notes": [],
+            "example": "_shoptopic.SetGetEnabled(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-topic-set-get-color",
+            "name": "ShopTopic.SetGetColor",
+            "signature": "ShopTopic.SetGetColor(_callback)",
+            "kind": "método",
+            "category": "Conversa",
+            "subcategory": "Callbacks dinâmicos",
+            "summary": "define callback de cor",
+            "purpose": "Calcular a cor do título.",
+            "whenToUse": "Use para indicadores dinâmicos.",
+            "parameters": [
+                {
+                    "name": "callback",
+                    "type": "function | undefined",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `callback` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopTopic",
+                "description": "O próprio `ShopTopic` para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopTopic`."],
+            "notes": [],
+            "example": "_shoptopic.SetGetColor(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-topic-set-next",
+            "name": "ShopTopic.SetNext",
+            "signature": "ShopTopic.SetNext(_topic)",
+            "kind": "método",
+            "category": "Conversa",
+            "subcategory": "Fluxo",
+            "summary": "define tópico sucessor",
+            "purpose": "Guardar um tópico para substituir o atual após conclusão.",
+            "whenToUse": "O ui_shop atual ainda não aplica next_topic automaticamente.",
+            "parameters": [
+                {
+                    "name": "topic",
+                    "type": "ShopTopic",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `topic` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopTopic",
+                "description": "O próprio `ShopTopic` para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopTopic`."],
+            "notes": [
+                "O `ui_shop` atual ainda não substitui tópicos automaticamente após o diálogo."
+            ],
+            "example": "_shoptopic.SetNext(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-topic-replace-with",
+            "name": "ShopTopic.ReplaceWith",
+            "signature": "ShopTopic.ReplaceWith(_topic)",
+            "kind": "método",
+            "category": "Conversa",
+            "subcategory": "Fluxo",
+            "summary": "alias de SetNext",
+            "purpose": "Definir o tópico que deveria ocupar o mesmo lugar depois da conversa.",
+            "whenToUse": "O ui_shop atual ainda não aplica next_topic automaticamente.",
+            "parameters": [
+                {
+                    "name": "topic",
+                    "type": "ShopTopic",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `topic` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopTopic",
+                "description": "O próprio `ShopTopic` para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopTopic`."],
+            "notes": [
+                "O `ui_shop` atual ainda não substitui tópicos automaticamente após o diálogo."
+            ],
+            "example": "_topic.ReplaceWith(_next_topic);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-topic-set-get-next",
+            "name": "ShopTopic.SetGetNext",
+            "signature": "ShopTopic.SetGetNext(_callback)",
+            "kind": "método",
+            "category": "Conversa",
+            "subcategory": "Fluxo",
+            "summary": "define sucessor dinâmico",
+            "purpose": "Escolher dinamicamente o próximo tópico.",
+            "whenToUse": "O ui_shop atual ainda não consulta get_next_topic.",
+            "parameters": [
+                {
+                    "name": "callback",
+                    "type": "function | undefined",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `callback` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopTopic",
+                "description": "O próprio `ShopTopic` para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopTopic`."],
+            "notes": ["O `ui_shop` atual ainda não consulta `get_next_topic`."],
+            "example": "_shoptopic.SetGetNext(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-topic-set-on-open",
+            "name": "ShopTopic.SetOnOpen",
+            "signature": "ShopTopic.SetOnOpen(_callback)",
+            "kind": "método",
+            "category": "Conversa",
+            "subcategory": "Callbacks",
+            "summary": "define callback ao abrir tópico",
+            "purpose": "Executar código quando o tópico específico é selecionado.",
+            "whenToUse": "O ui_shop atual executa topic.on_open.",
+            "parameters": [
+                {
+                    "name": "callback",
+                    "type": "function | undefined",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `callback` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopTopic",
+                "description": "O próprio `ShopTopic` para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopTopic`."],
+            "notes": [],
+            "example": "_topic.SetOnOpen(function(_shop_instance, _topic) {\n    global.heard_topic = true;\n});",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-topic-set-on-talk",
+            "name": "ShopTopic.SetOnTalk",
+            "signature": "ShopTopic.SetOnTalk(_callback)",
+            "kind": "método",
+            "category": "Conversa",
+            "subcategory": "Callbacks",
+            "summary": "alias de SetOnOpen",
+            "purpose": "Definir callback ao selecionar este assunto.",
+            "whenToUse": "Equivalente a SetOnOpen.",
+            "parameters": [
+                {
+                    "name": "callback",
+                    "type": "function | undefined",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `callback` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopTopic",
+                "description": "O próprio `ShopTopic` para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopTopic`."],
+            "notes": [],
+            "example": "_shoptopic.SetOnTalk(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-topic-set-on-complete",
+            "name": "ShopTopic.SetOnComplete",
+            "signature": "ShopTopic.SetOnComplete(_callback)",
+            "kind": "método",
+            "category": "Conversa",
+            "subcategory": "Callbacks",
+            "summary": "define callback ao terminar tópico",
+            "purpose": "Executar código depois da última página.",
+            "whenToUse": "O ui_shop atual ainda não chama on_complete.",
+            "parameters": [
+                {
+                    "name": "callback",
+                    "type": "function | undefined",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `callback` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopTopic",
+                "description": "O próprio `ShopTopic` para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopTopic`."],
+            "notes": [
+                "O `ui_shop` atual ainda não dispara `on_complete` ao terminar as páginas."
+            ],
+            "example": "_shoptopic.SetOnComplete(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-config-add-item",
+            "name": "ShopConfig.AddItem",
+            "signature": "ShopConfig.AddItem(_item)",
+            "kind": "método",
+            "category": "Conteúdo",
+            "subcategory": "Itens",
+            "summary": "adiciona um ShopItem",
+            "purpose": "Adicionar um item à lista Buy.",
+            "whenToUse": "Use ao montar a loja por chamadas em vez de array_push.",
+            "parameters": [
+                {
+                    "name": "item",
+                    "type": "ShopItem",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `item` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopItem",
+                "description": "O mesmo item adicionado."
+            },
+            "sideEffects": ["Altera propriedades de `ShopConfig`."],
+            "notes": [],
+            "example": "_shop.AddItem(new ShopItem(ITEM_EGG, 0, \"The EGG.\"));",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-config-add-topic",
+            "name": "ShopConfig.AddTopic",
+            "signature": "ShopConfig.AddTopic(_topic)",
+            "kind": "método",
+            "category": "Conteúdo",
+            "subcategory": "Conversa",
+            "summary": "adiciona um ShopTopic",
+            "purpose": "Adicionar um assunto ao menu Talk.",
+            "whenToUse": "Use ao montar tópicos por chamadas.",
+            "parameters": [
+                {
+                    "name": "topic",
+                    "type": "ShopTopic",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `topic` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopTopic",
+                "description": "O mesmo tópico adicionado."
+            },
+            "sideEffects": ["Altera propriedades de `ShopConfig`."],
+            "notes": [],
+            "example": "_shop.AddTopic(new ShopTopic(\"About\", [\"* Hello.\"]));",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-config-find-topic",
+            "name": "ShopConfig.FindTopic",
+            "signature": "ShopConfig.FindTopic(_id)",
+            "kind": "método",
+            "category": "Conteúdo",
+            "subcategory": "Conversa",
+            "summary": "procura tópico por ID",
+            "purpose": "Obter um tópico previamente registrado.",
+            "whenToUse": "Use para alterar um assunto existente.",
+            "parameters": [
+                {
+                    "name": "id",
+                    "type": "string",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `id` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopTopic | undefined",
+                "description": "Tópico encontrado ou `undefined`."
+            },
+            "sideEffects": ["Altera propriedades de `ShopConfig`."],
+            "notes": [],
+            "example": "_shopconfig.FindTopic(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-config-find-topic-index",
+            "name": "ShopConfig.FindTopicIndex",
+            "signature": "ShopConfig.FindTopicIndex(_topic_or_id)",
+            "kind": "método",
+            "category": "Conteúdo",
+            "subcategory": "Conversa",
+            "summary": "localiza índice de tópico",
+            "purpose": "Descobrir a posição de um tópico por objeto ou ID.",
+            "whenToUse": "Use antes de operações posicionais.",
+            "parameters": [
+                {
+                    "name": "topic_or_id",
+                    "type": "ShopTopic | string",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `topic_or_id` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "integer",
+                "description": "Índice do tópico ou -1."
+            },
+            "sideEffects": ["Altera propriedades de `ShopConfig`."],
+            "notes": [],
+            "example": "_shopconfig.FindTopicIndex(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-config-replace-topic",
+            "name": "ShopConfig.ReplaceTopic",
+            "signature": "ShopConfig.ReplaceTopic(_topic_or_id, _replacement)",
+            "kind": "método",
+            "category": "Conteúdo",
+            "subcategory": "Conversa",
+            "summary": "substitui tópico mantendo posição",
+            "purpose": "Trocar uma opção de Talk por outra no mesmo índice.",
+            "whenToUse": "Funciona imediatamente quando chamado manualmente.",
+            "parameters": [
+                {
+                    "name": "topic_or_id",
+                    "type": "ShopTopic | string",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `topic_or_id` usado por esta operação do Shop System."
+                },
+                {
+                    "name": "replacement",
+                    "type": "ShopTopic",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `replacement` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "boolean",
+                "description": "true se a operação encontrou e modificou o tópico."
+            },
+            "sideEffects": ["Altera propriedades de `ShopConfig`."],
+            "notes": [],
+            "example": "_shopconfig.ReplaceTopic(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-config-remove-topic",
+            "name": "ShopConfig.RemoveTopic",
+            "signature": "ShopConfig.RemoveTopic(_topic_or_id)",
+            "kind": "método",
+            "category": "Conteúdo",
+            "subcategory": "Conversa",
+            "summary": "remove tópico",
+            "purpose": "Excluir uma opção de Talk.",
+            "whenToUse": "Use para remover assuntos definitivamente.",
+            "parameters": [
+                {
+                    "name": "topic_or_id",
+                    "type": "ShopTopic | string",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `topic_or_id` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "boolean",
+                "description": "true se a operação encontrou e modificou o tópico."
+            },
+            "sideEffects": ["Altera propriedades de `ShopConfig`."],
+            "notes": [],
+            "example": "_shopconfig.RemoveTopic(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-config-set-buy",
+            "name": "ShopConfig.SetBuy",
+            "signature": "ShopConfig.SetBuy(_enabled = true, _hide_when_disabled = true)",
+            "kind": "método",
+            "category": "Menu principal",
+            "subcategory": "Buy",
+            "summary": "configura Buy",
+            "purpose": "Habilitar/desabilitar Buy e definir se deve sumir quando desabilitado.",
+            "whenToUse": "A UI atual lê buy_hide_when_disabled.",
+            "parameters": [
+                {
+                    "name": "enabled",
+                    "type": "boolean",
+                    "required": false,
+                    "defaultValue": "true",
+                    "description": "Valor de `enabled` usado por esta operação do Shop System."
+                },
+                {
+                    "name": "hide_when_disabled",
+                    "type": "boolean",
+                    "required": false,
+                    "defaultValue": "true",
+                    "description": "Valor de `hide_when_disabled` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopConfig",
+                "description": "A própria configuração (`self`) para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopConfig`."],
+            "notes": [],
+            "example": "_shop.SetBuy(false, false);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-config-set-sell",
+            "name": "ShopConfig.SetSell",
+            "signature": "ShopConfig.SetSell(_enabled = true, _mode = SHOP_SELL_MODE.MESSAGE, _pages = undefined, _hide_when_disabled = true)",
+            "kind": "método",
+            "category": "Menu principal",
+            "subcategory": "Sell",
+            "summary": "configura Sell",
+            "purpose": "Configurar habilitação, modo, páginas e ocultação.",
+            "whenToUse": "Para manter Sell visível desabilitado no código atual, use o 4º argumento false.",
+            "parameters": [
+                {
+                    "name": "enabled",
+                    "type": "boolean",
+                    "required": false,
+                    "defaultValue": "true",
+                    "description": "Valor de `enabled` usado por esta operação do Shop System."
+                },
+                {
+                    "name": "mode",
+                    "type": "SHOP_SELL_MODE",
+                    "required": false,
+                    "defaultValue": "SHOP_SELL_MODE.MESSAGE",
+                    "description": "Valor de `mode` usado por esta operação do Shop System."
+                },
+                {
+                    "name": "pages",
+                    "type": "string | array<string>",
+                    "required": false,
+                    "defaultValue": "undefined",
+                    "description": "Valor de `pages` usado por esta operação do Shop System."
+                },
+                {
+                    "name": "hide_when_disabled",
+                    "type": "boolean",
+                    "required": false,
+                    "defaultValue": "true",
+                    "description": "Valor de `hide_when_disabled` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopConfig",
+                "description": "A própria configuração (`self`) para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopConfig`."],
+            "notes": [
+                "A assinatura atual é `SetSell(enabled, mode, pages, hide_when_disabled)`. Portanto `SetSell(false, false)` NÃO define o segundo argumento como hide; use o quarto argumento."
+            ],
+            "example": "_shop.SetSell(false, SHOP_SELL_MODE.MESSAGE, undefined, false);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-config-set-talk",
+            "name": "ShopConfig.SetTalk",
+            "signature": "ShopConfig.SetTalk(_enabled = true, _hide_when_disabled = true)",
+            "kind": "método",
+            "category": "Menu principal",
+            "subcategory": "Talk",
+            "summary": "configura Talk",
+            "purpose": "Habilitar/desabilitar Talk e definir ocultação.",
+            "whenToUse": "A UI atual lê talk_hide_when_disabled.",
+            "parameters": [
+                {
+                    "name": "enabled",
+                    "type": "boolean",
+                    "required": false,
+                    "defaultValue": "true",
+                    "description": "Valor de `enabled` usado por esta operação do Shop System."
+                },
+                {
+                    "name": "hide_when_disabled",
+                    "type": "boolean",
+                    "required": false,
+                    "defaultValue": "true",
+                    "description": "Valor de `hide_when_disabled` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopConfig",
+                "description": "A própria configuração (`self`) para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopConfig`."],
+            "notes": [],
+            "example": "_shop.SetTalk(false, false);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-config-set-exit",
+            "name": "ShopConfig.SetExit",
+            "signature": "ShopConfig.SetExit(_enabled = true, _hide_when_disabled = true)",
+            "kind": "método",
+            "category": "Menu principal",
+            "subcategory": "Exit",
+            "summary": "configura Exit",
+            "purpose": "Habilitar/desabilitar Exit e definir ocultação.",
+            "whenToUse": "A UI atual lê exit_hide_when_disabled no menu principal.",
+            "parameters": [
+                {
+                    "name": "enabled",
+                    "type": "boolean",
+                    "required": false,
+                    "defaultValue": "true",
+                    "description": "Valor de `enabled` usado por esta operação do Shop System."
+                },
+                {
+                    "name": "hide_when_disabled",
+                    "type": "boolean",
+                    "required": false,
+                    "defaultValue": "true",
+                    "description": "Valor de `hide_when_disabled` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopConfig",
+                "description": "A própria configuração (`self`) para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopConfig`."],
+            "notes": [],
+            "example": "_shop.SetExit(false, false);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-config-is-buy-visible",
+            "name": "ShopConfig.IsBuyVisible",
+            "signature": "ShopConfig.IsBuyVisible()",
+            "kind": "método",
+            "category": "Menu principal",
+            "subcategory": "Consulta",
+            "summary": "informa se Buy deve aparecer",
+            "purpose": "Consultar a regra de visibilidade de Buy.",
+            "whenToUse": "Útil em customizações do UI.",
+            "parameters": [],
+            "returns": {
+                "type": "boolean",
+                "description": "Estado calculado de visibilidade."
+            },
+            "sideEffects": ["Altera propriedades de `ShopConfig`."],
+            "notes": [],
+            "example": "_shopconfig.IsBuyVisible(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-config-is-sell-visible",
+            "name": "ShopConfig.IsSellVisible",
+            "signature": "ShopConfig.IsSellVisible()",
+            "kind": "método",
+            "category": "Menu principal",
+            "subcategory": "Consulta",
+            "summary": "informa se Sell deve aparecer",
+            "purpose": "Consultar a regra de visibilidade de Sell.",
+            "whenToUse": "Útil em customizações do UI.",
+            "parameters": [],
+            "returns": {
+                "type": "boolean",
+                "description": "Estado calculado de visibilidade."
+            },
+            "sideEffects": ["Altera propriedades de `ShopConfig`."],
+            "notes": [],
+            "example": "_shopconfig.IsSellVisible(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-config-is-talk-visible",
+            "name": "ShopConfig.IsTalkVisible",
+            "signature": "ShopConfig.IsTalkVisible()",
+            "kind": "método",
+            "category": "Menu principal",
+            "subcategory": "Consulta",
+            "summary": "informa se Talk deve aparecer",
+            "purpose": "Consultar a regra de visibilidade de Talk.",
+            "whenToUse": "Útil em customizações do UI.",
+            "parameters": [],
+            "returns": {
+                "type": "boolean",
+                "description": "Estado calculado de visibilidade."
+            },
+            "sideEffects": ["Altera propriedades de `ShopConfig`."],
+            "notes": [],
+            "example": "_shopconfig.IsTalkVisible(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-config-is-exit-visible",
+            "name": "ShopConfig.IsExitVisible",
+            "signature": "ShopConfig.IsExitVisible()",
+            "kind": "método",
+            "category": "Menu principal",
+            "subcategory": "Consulta",
+            "summary": "informa se Exit deve aparecer",
+            "purpose": "Consultar a regra de visibilidade de Exit.",
+            "whenToUse": "Útil em customizações do UI.",
+            "parameters": [],
+            "returns": {
+                "type": "boolean",
+                "description": "Estado calculado de visibilidade."
+            },
+            "sideEffects": ["Altera propriedades de `ShopConfig`."],
+            "notes": [],
+            "example": "_shopconfig.IsExitVisible(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-config-set-greeting",
+            "name": "ShopConfig.SetGreeting",
+            "signature": "ShopConfig.SetGreeting(_text)",
+            "kind": "método",
+            "category": "Textos",
+            "subcategory": "Principal",
+            "summary": "define saudação",
+            "purpose": "Alterar o texto mostrado no menu principal.",
+            "whenToUse": "Use para a fala inicial/retorno.",
+            "parameters": [
+                {
+                    "name": "text",
+                    "type": "string",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `text` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopConfig",
+                "description": "A própria configuração (`self`) para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopConfig`."],
+            "notes": [],
+            "example": "_shop.SetGreeting(\"* Welcome.\");",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-config-set-buy-greeting",
+            "name": "ShopConfig.SetBuyGreeting",
+            "signature": "ShopConfig.SetBuyGreeting(_text)",
+            "kind": "método",
+            "category": "Textos",
+            "subcategory": "Buy",
+            "summary": "define fala ao abrir Buy",
+            "purpose": "Alterar a fala lateral de Buy.",
+            "whenToUse": "Use para personalizar o vendedor.",
+            "parameters": [
+                {
+                    "name": "text",
+                    "type": "string",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `text` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopConfig",
+                "description": "A própria configuração (`self`) para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopConfig`."],
+            "notes": [],
+            "example": "_shopconfig.SetBuyGreeting(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-config-set-sell-greeting",
+            "name": "ShopConfig.SetSellGreeting",
+            "signature": "ShopConfig.SetSellGreeting(_text)",
+            "kind": "método",
+            "category": "Textos",
+            "subcategory": "Sell",
+            "summary": "define fala ao abrir Sell",
+            "purpose": "Alterar a fala lateral de Sell.",
+            "whenToUse": "Use no modo de venda por inventário.",
+            "parameters": [
+                {
+                    "name": "text",
+                    "type": "string",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `text` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopConfig",
+                "description": "A própria configuração (`self`) para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopConfig`."],
+            "notes": [],
+            "example": "_shopconfig.SetSellGreeting(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-config-set-talk-greeting",
+            "name": "ShopConfig.SetTalkGreeting",
+            "signature": "ShopConfig.SetTalkGreeting(_text)",
+            "kind": "método",
+            "category": "Textos",
+            "subcategory": "Talk",
+            "summary": "define fala ao abrir Talk",
+            "purpose": "Alterar a fala lateral de Talk.",
+            "whenToUse": "Use ao entrar no menu de conversa.",
+            "parameters": [
+                {
+                    "name": "text",
+                    "type": "string",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `text` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopConfig",
+                "description": "A própria configuração (`self`) para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopConfig`."],
+            "notes": [],
+            "example": "_shopconfig.SetTalkGreeting(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-config-set-buy-text",
+            "name": "ShopConfig.SetBuyText",
+            "signature": "ShopConfig.SetBuyText(_text)",
+            "kind": "método",
+            "category": "Textos",
+            "subcategory": "Menu",
+            "summary": "define rótulo Buy",
+            "purpose": "Renomear a opção Buy.",
+            "whenToUse": "Use para localização ou estilo.",
+            "parameters": [
+                {
+                    "name": "text",
+                    "type": "string",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `text` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopConfig",
+                "description": "A própria configuração (`self`) para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopConfig`."],
+            "notes": [],
+            "example": "_shopconfig.SetBuyText(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-config-set-sell-text",
+            "name": "ShopConfig.SetSellText",
+            "signature": "ShopConfig.SetSellText(_text)",
+            "kind": "método",
+            "category": "Textos",
+            "subcategory": "Menu",
+            "summary": "define rótulo Sell",
+            "purpose": "Renomear a opção Sell.",
+            "whenToUse": "Use para localização ou estilo.",
+            "parameters": [
+                {
+                    "name": "text",
+                    "type": "string",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `text` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopConfig",
+                "description": "A própria configuração (`self`) para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopConfig`."],
+            "notes": [],
+            "example": "_shopconfig.SetSellText(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-config-set-talk-text",
+            "name": "ShopConfig.SetTalkText",
+            "signature": "ShopConfig.SetTalkText(_text)",
+            "kind": "método",
+            "category": "Textos",
+            "subcategory": "Menu",
+            "summary": "define rótulo Talk",
+            "purpose": "Renomear a opção Talk.",
+            "whenToUse": "Use para localização ou estilo.",
+            "parameters": [
+                {
+                    "name": "text",
+                    "type": "string",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `text` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopConfig",
+                "description": "A própria configuração (`self`) para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopConfig`."],
+            "notes": [],
+            "example": "_shopconfig.SetTalkText(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-config-set-exit-text",
+            "name": "ShopConfig.SetExitText",
+            "signature": "ShopConfig.SetExitText(_text)",
+            "kind": "método",
+            "category": "Textos",
+            "subcategory": "Menu",
+            "summary": "define rótulo Exit",
+            "purpose": "Renomear a opção Exit.",
+            "whenToUse": "Use para localização ou estilo.",
+            "parameters": [
+                {
+                    "name": "text",
+                    "type": "string",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `text` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopConfig",
+                "description": "A própria configuração (`self`) para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopConfig`."],
+            "notes": [],
+            "example": "_shopconfig.SetExitText(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-config-set-yes-text",
+            "name": "ShopConfig.SetYesText",
+            "signature": "ShopConfig.SetYesText(_text)",
+            "kind": "método",
+            "category": "Textos",
+            "subcategory": "Confirmação",
+            "summary": "define texto Yes",
+            "purpose": "Alterar a opção positiva.",
+            "whenToUse": "Use para localização.",
+            "parameters": [
+                {
+                    "name": "text",
+                    "type": "string",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `text` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopConfig",
+                "description": "A própria configuração (`self`) para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopConfig`."],
+            "notes": [],
+            "example": "_shopconfig.SetYesText(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-config-set-no-text",
+            "name": "ShopConfig.SetNoText",
+            "signature": "ShopConfig.SetNoText(_text)",
+            "kind": "método",
+            "category": "Textos",
+            "subcategory": "Confirmação",
+            "summary": "define texto No",
+            "purpose": "Alterar a opção negativa.",
+            "whenToUse": "Use para localização.",
+            "parameters": [
+                {
+                    "name": "text",
+                    "type": "string",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `text` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopConfig",
+                "description": "A própria configuração (`self`) para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopConfig`."],
+            "notes": [],
+            "example": "_shopconfig.SetNoText(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-config-set-gold-text",
+            "name": "ShopConfig.SetGoldText",
+            "signature": "ShopConfig.SetGoldText(_text)",
+            "kind": "método",
+            "category": "Textos",
+            "subcategory": "Status",
+            "summary": "define sufixo de Gold",
+            "purpose": "Alterar o texto anexado ao valor de Gold.",
+            "whenToUse": "Use para localização/estilo.",
+            "parameters": [
+                {
+                    "name": "text",
+                    "type": "string",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `text` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopConfig",
+                "description": "A própria configuração (`self`) para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopConfig`."],
+            "notes": [],
+            "example": "_shopconfig.SetGoldText(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-config-set-sell-message",
+            "name": "ShopConfig.SetSellMessage",
+            "signature": "ShopConfig.SetSellMessage(_pages)",
+            "kind": "método",
+            "category": "Textos",
+            "subcategory": "Sell",
+            "summary": "define páginas do Sell MESSAGE",
+            "purpose": "Configurar a resposta quando a loja não compra itens.",
+            "whenToUse": "Use com SHOP_SELL_MODE.MESSAGE.",
+            "parameters": [
+                {
+                    "name": "pages",
+                    "type": "string | array<string>",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `pages` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopConfig",
+                "description": "A própria configuração (`self`) para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopConfig`."],
+            "notes": [],
+            "example": "_shopconfig.SetSellMessage(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-config-set-buy-prompt",
+            "name": "ShopConfig.SetBuyPrompt",
+            "signature": "ShopConfig.SetBuyPrompt(_text)",
+            "kind": "método",
+            "category": "Textos",
+            "subcategory": "Confirmação",
+            "summary": "define pergunta de compra",
+            "purpose": "Alterar o prompt de confirmação; {PRICE} é substituído.",
+            "whenToUse": "Use para personalizar confirmação.",
+            "parameters": [
+                {
+                    "name": "text",
+                    "type": "string",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `text` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopConfig",
+                "description": "A própria configuração (`self`) para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopConfig`."],
+            "notes": [],
+            "example": "_shopconfig.SetBuyPrompt(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-config-set-sell-prompt",
+            "name": "ShopConfig.SetSellPrompt",
+            "signature": "ShopConfig.SetSellPrompt(_text)",
+            "kind": "método",
+            "category": "Textos",
+            "subcategory": "Confirmação",
+            "summary": "define pergunta de venda",
+            "purpose": "Alterar o prompt de venda; {PRICE} é substituído.",
+            "whenToUse": "Use no Sell por inventário.",
+            "parameters": [
+                {
+                    "name": "text",
+                    "type": "string",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `text` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopConfig",
+                "description": "A própria configuração (`self`) para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopConfig`."],
+            "notes": [],
+            "example": "_shopconfig.SetSellPrompt(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-config-set-purchase-thanks",
+            "name": "ShopConfig.SetPurchaseThanks",
+            "signature": "ShopConfig.SetPurchaseThanks(_text)",
+            "kind": "método",
+            "category": "Textos",
+            "subcategory": "Compra",
+            "summary": "define agradecimento padrão",
+            "purpose": "Alterar a fala após compra bem-sucedida.",
+            "whenToUse": "Itens podem sobrescrever com ShopItem.SetPurchaseThanks.",
+            "parameters": [
+                {
+                    "name": "text",
+                    "type": "string",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `text` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopConfig",
+                "description": "A própria configuração (`self`) para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopConfig`."],
+            "notes": [],
+            "example": "_shopconfig.SetPurchaseThanks(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-config-set-just-looking-text",
+            "name": "ShopConfig.SetJustLookingText",
+            "signature": "ShopConfig.SetJustLookingText(_text)",
+            "kind": "método",
+            "category": "Textos",
+            "subcategory": "Compra",
+            "summary": "define resposta ao cancelar compra",
+            "purpose": "Alterar a fala ao escolher No/cancelar.",
+            "whenToUse": "Use para reação do vendedor.",
+            "parameters": [
+                {
+                    "name": "text",
+                    "type": "string",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `text` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopConfig",
+                "description": "A própria configuração (`self`) para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopConfig`."],
+            "notes": [],
+            "example": "_shopconfig.SetJustLookingText(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-config-set-not-enough-gold-text",
+            "name": "ShopConfig.SetNotEnoughGoldText",
+            "signature": "ShopConfig.SetNotEnoughGoldText(_text)",
+            "kind": "método",
+            "category": "Textos",
+            "subcategory": "Compra",
+            "summary": "define texto de Gold insuficiente",
+            "purpose": "Alterar mensagem de dinheiro insuficiente.",
+            "whenToUse": "Use para personalização.",
+            "parameters": [
+                {
+                    "name": "text",
+                    "type": "string",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `text` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopConfig",
+                "description": "A própria configuração (`self`) para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopConfig`."],
+            "notes": [],
+            "example": "_shopconfig.SetNotEnoughGoldText(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-config-set-inventory-full-text",
+            "name": "ShopConfig.SetInventoryFullText",
+            "signature": "ShopConfig.SetInventoryFullText(_text)",
+            "kind": "método",
+            "category": "Textos",
+            "subcategory": "Compra",
+            "summary": "define texto de inventário cheio",
+            "purpose": "Alterar mensagem de capacidade esgotada.",
+            "whenToUse": "Use para personalização.",
+            "parameters": [
+                {
+                    "name": "text",
+                    "type": "string",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `text` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopConfig",
+                "description": "A própria configuração (`self`) para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopConfig`."],
+            "notes": [],
+            "example": "_shopconfig.SetInventoryFullText(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-config-set-sold-out-text",
+            "name": "ShopConfig.SetSoldOutText",
+            "signature": "ShopConfig.SetSoldOutText(_text)",
+            "kind": "método",
+            "category": "Textos",
+            "subcategory": "Compra",
+            "summary": "define texto de item esgotado",
+            "purpose": "Alterar mensagem de estoque zero.",
+            "whenToUse": "Use para personalização.",
+            "parameters": [
+                {
+                    "name": "text",
+                    "type": "string",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `text` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopConfig",
+                "description": "A própria configuração (`self`) para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopConfig`."],
+            "notes": [],
+            "example": "_shopconfig.SetSoldOutText(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-config-set-invalid-item-text",
+            "name": "ShopConfig.SetInvalidItemText",
+            "signature": "ShopConfig.SetInvalidItemText(_text)",
+            "kind": "método",
+            "category": "Textos",
+            "subcategory": "Compra",
+            "summary": "define texto de item inválido",
+            "purpose": "Alterar mensagem quando o item não pode ser inserido/validado.",
+            "whenToUse": "Use para erros controlados de item.",
+            "parameters": [
+                {
+                    "name": "text",
+                    "type": "string",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `text` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopConfig",
+                "description": "A própria configuração (`self`) para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopConfig`."],
+            "notes": [],
+            "example": "_shopconfig.SetInvalidItemText(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-config-set-nothing-to-sell-text",
+            "name": "ShopConfig.SetNothingToSellText",
+            "signature": "ShopConfig.SetNothingToSellText(_text)",
+            "kind": "método",
+            "category": "Textos",
+            "subcategory": "Sell",
+            "summary": "define texto sem itens para vender",
+            "purpose": "Alterar resposta quando inventário não possui itens vendáveis.",
+            "whenToUse": "Use no Sell INVENTORY.",
+            "parameters": [
+                {
+                    "name": "text",
+                    "type": "string",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `text` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopConfig",
+                "description": "A própria configuração (`self`) para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopConfig`."],
+            "notes": [],
+            "example": "_shopconfig.SetNothingToSellText(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-config-set-sale-thanks",
+            "name": "ShopConfig.SetSaleThanks",
+            "signature": "ShopConfig.SetSaleThanks(_text)",
+            "kind": "método",
+            "category": "Textos",
+            "subcategory": "Sell",
+            "summary": "define agradecimento de venda",
+            "purpose": "Alterar fala após o jogador vender um item.",
+            "whenToUse": "Use no Sell INVENTORY.",
+            "parameters": [
+                {
+                    "name": "text",
+                    "type": "string",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `text` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopConfig",
+                "description": "A própria configuração (`self`) para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopConfig`."],
+            "notes": [],
+            "example": "_shopconfig.SetSaleThanks(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-config-set-goodbye",
+            "name": "ShopConfig.SetGoodbye",
+            "signature": "ShopConfig.SetGoodbye(_pages)",
+            "kind": "método",
+            "category": "Textos",
+            "subcategory": "Saída",
+            "summary": "define diálogo de despedida",
+            "purpose": "Configurar páginas mostradas antes de sair.",
+            "whenToUse": "Array vazio também desativa o diálogo de saída.",
+            "parameters": [
+                {
+                    "name": "pages",
+                    "type": "string | array<string>",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `pages` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopConfig",
+                "description": "A própria configuração (`self`) para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopConfig`."],
+            "notes": [],
+            "example": "_shopconfig.SetGoodbye(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-config-set-exit-dialogue",
+            "name": "ShopConfig.SetExitDialogue",
+            "signature": "ShopConfig.SetExitDialogue(_enabled = true, _pages = undefined)",
+            "kind": "método",
+            "category": "Saída",
+            "subcategory": "Diálogo",
+            "summary": "habilita/desabilita despedida",
+            "purpose": "Controlar se Exit abre diálogo de despedida e opcionalmente definir páginas.",
+            "whenToUse": "O Create atual lê exit_dialogue_enabled.",
+            "parameters": [
+                {
+                    "name": "enabled",
+                    "type": "boolean",
+                    "required": false,
+                    "defaultValue": "true",
+                    "description": "Valor de `enabled` usado por esta operação do Shop System."
+                },
+                {
+                    "name": "pages",
+                    "type": "string | array<string>",
+                    "required": false,
+                    "defaultValue": "undefined",
+                    "description": "Valor de `pages` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopConfig",
+                "description": "A própria configuração (`self`) para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopConfig`."],
+            "notes": [
+                "O Create atual aceita `exit_dialogue_enabled` e mantém compatibilidade com o nome antigo `exit_dialog_enabled`."
+            ],
+            "example": "_shop.SetExitDialogue(false);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-config-set-dialog-sound",
+            "name": "ShopConfig.SetDialogSound",
+            "signature": "ShopConfig.SetDialogSound(_sound)",
+            "kind": "método",
+            "category": "Áudio",
+            "subcategory": "Diálogo",
+            "summary": "define som/voice de diálogo da loja",
+            "purpose": "Guardar o som desejado para o writer da loja.",
+            "whenToUse": "O ui_shop atual ainda usa {voice 0} fixo; setter preparado, integração pendente.",
+            "parameters": [
+                {
+                    "name": "sound",
+                    "type": "audio asset | -1 | undefined",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `sound` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopConfig",
+                "description": "A própria configuração (`self`) para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopConfig`."],
+            "notes": [
+                "Declarado no ShopSystem, mas o `ui_shop` atual ainda usa `{voice 0}` fixo em `_TextShow()`."
+            ],
+            "example": "_shopconfig.SetDialogSound(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-config-set-menu-sounds",
+            "name": "ShopConfig.SetMenuSounds",
+            "signature": "ShopConfig.SetMenuSounds(_move, _confirm, _cancel)",
+            "kind": "método",
+            "category": "Áudio",
+            "subcategory": "Menu",
+            "summary": "define sons de navegação",
+            "purpose": "Trocar sons de mover, confirmar e cancelar.",
+            "whenToUse": "A UI atual usa esses campos.",
+            "parameters": [
+                {
+                    "name": "move",
+                    "type": "audio asset | -1",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `move` usado por esta operação do Shop System."
+                },
+                {
+                    "name": "confirm",
+                    "type": "audio asset | -1",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `confirm` usado por esta operação do Shop System."
+                },
+                {
+                    "name": "cancel",
+                    "type": "audio asset | -1",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `cancel` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopConfig",
+                "description": "A própria configuração (`self`) para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopConfig`."],
+            "notes": [],
+            "example": "_shopconfig.SetMenuSounds(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-config-set-bgm",
+            "name": "ShopConfig.SetBGM",
+            "signature": "ShopConfig.SetBGM(_audio, _slot = 0, _pitch = 1, _volume = 1, _loop = true, _stop_on_exit = true)",
+            "kind": "método",
+            "category": "Áudio",
+            "subcategory": "Música",
+            "summary": "configura BGM",
+            "purpose": "Definir música, slot, pitch, volume, loop e parada na saída.",
+            "whenToUse": "Use para música específica da loja.",
+            "parameters": [
+                {
+                    "name": "audio",
+                    "type": "audio asset | -1",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `audio` usado por esta operação do Shop System."
+                },
+                {
+                    "name": "slot",
+                    "type": "integer",
+                    "required": false,
+                    "defaultValue": "0",
+                    "description": "Valor de `slot` usado por esta operação do Shop System."
+                },
+                {
+                    "name": "pitch",
+                    "type": "real",
+                    "required": false,
+                    "defaultValue": "1",
+                    "description": "Valor de `pitch` usado por esta operação do Shop System."
+                },
+                {
+                    "name": "volume",
+                    "type": "real",
+                    "required": false,
+                    "defaultValue": "1",
+                    "description": "Valor de `volume` usado por esta operação do Shop System."
+                },
+                {
+                    "name": "loop",
+                    "type": "boolean",
+                    "required": false,
+                    "defaultValue": "true",
+                    "description": "Valor de `loop` usado por esta operação do Shop System."
+                },
+                {
+                    "name": "stop_on_exit",
+                    "type": "boolean",
+                    "required": false,
+                    "defaultValue": "true",
+                    "description": "Valor de `stop_on_exit` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopConfig",
+                "description": "A própria configuração (`self`) para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopConfig`."],
+            "notes": [],
+            "example": "_shop.SetBGM(snd_shop, 0, 1.0, 0.8);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-config-set-exit-room",
+            "name": "ShopConfig.SetExitRoom",
+            "signature": "ShopConfig.SetExitRoom(_room)",
+            "kind": "método",
+            "category": "Saída",
+            "subcategory": "Room",
+            "summary": "define room de destino",
+            "purpose": "Forçar uma room específica ao sair.",
+            "whenToUse": "Sobrescreve o retorno lembrado.",
+            "parameters": [
+                {
+                    "name": "room",
+                    "type": "room asset | noone",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `room` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopConfig",
+                "description": "A própria configuração (`self`) para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopConfig`."],
+            "notes": [],
+            "example": "_shopconfig.SetExitRoom(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-config-set-return-room",
+            "name": "ShopConfig.SetReturnRoom",
+            "signature": "ShopConfig.SetReturnRoom(_room)",
+            "kind": "método",
+            "category": "Saída",
+            "subcategory": "Room",
+            "summary": "alias semântico para ExitRoom",
+            "purpose": "Definir explicitamente a room para retornar.",
+            "whenToUse": "Use quando já conhece a origem.",
+            "parameters": [
+                {
+                    "name": "room",
+                    "type": "room asset | noone",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `room` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopConfig",
+                "description": "A própria configuração (`self`) para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopConfig`."],
+            "notes": [],
+            "example": "_shopconfig.SetReturnRoom(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-config-use-remembered-return-room",
+            "name": "ShopConfig.UseRememberedReturnRoom",
+            "signature": "ShopConfig.UseRememberedReturnRoom()",
+            "kind": "método",
+            "category": "Saída",
+            "subcategory": "Room",
+            "summary": "usa room lembrada",
+            "purpose": "Copiar Shop_GetReturnRoom para exit_room.",
+            "whenToUse": "Use depois de Shop_RememberReturnRoom/Shop_Goto.",
+            "parameters": [],
+            "returns": {
+                "type": "ShopConfig",
+                "description": "A própria configuração para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopConfig`."],
+            "notes": [],
+            "example": "_shopconfig.UseRememberedReturnRoom(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-config-set-fade",
+            "name": "ShopConfig.SetFade",
+            "signature": "ShopConfig.SetFade(_fade_in = true, _fade_out = true, _speed = 0.08, _color = c_black)",
+            "kind": "método",
+            "category": "Aparência",
+            "subcategory": "Transição",
+            "summary": "configura fades",
+            "purpose": "Alterar fade in/out, velocidade e cor.",
+            "whenToUse": "Use para transições da loja.",
+            "parameters": [
+                {
+                    "name": "fade_in",
+                    "type": "boolean",
+                    "required": false,
+                    "defaultValue": "true",
+                    "description": "Valor de `fade_in` usado por esta operação do Shop System."
+                },
+                {
+                    "name": "fade_out",
+                    "type": "boolean",
+                    "required": false,
+                    "defaultValue": "true",
+                    "description": "Valor de `fade_out` usado por esta operação do Shop System."
+                },
+                {
+                    "name": "speed",
+                    "type": "real",
+                    "required": false,
+                    "defaultValue": "0.08",
+                    "description": "Valor de `speed` usado por esta operação do Shop System."
+                },
+                {
+                    "name": "color",
+                    "type": "color | string | array<real>",
+                    "required": false,
+                    "defaultValue": "c_black",
+                    "description": "Valor de `color` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopConfig",
+                "description": "A própria configuração (`self`) para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopConfig`."],
+            "notes": [],
+            "example": "_shopconfig.SetFade(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-config-set-on-open",
+            "name": "ShopConfig.SetOnOpen",
+            "signature": "ShopConfig.SetOnOpen(_callback)",
+            "kind": "método",
+            "category": "Callbacks",
+            "subcategory": "Ciclo de vida",
+            "summary": "define callback de abertura",
+            "purpose": "Executar código quando Setup termina.",
+            "whenToUse": "A UI atual executa on_open.",
+            "parameters": [
+                {
+                    "name": "callback",
+                    "type": "function | undefined",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `callback` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopConfig",
+                "description": "A própria configuração (`self`) para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopConfig`."],
+            "notes": [],
+            "example": "_shopconfig.SetOnOpen(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-config-set-on-exit",
+            "name": "ShopConfig.SetOnExit",
+            "signature": "ShopConfig.SetOnExit(_callback)",
+            "kind": "método",
+            "category": "Callbacks",
+            "subcategory": "Ciclo de vida",
+            "summary": "define callback de saída",
+            "purpose": "Executar código antes da saída padrão; retornar true assume a saída.",
+            "whenToUse": "A UI atual executa on_exit.",
+            "parameters": [
+                {
+                    "name": "callback",
+                    "type": "function | undefined",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `callback` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopConfig",
+                "description": "A própria configuração (`self`) para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopConfig`."],
+            "notes": [],
+            "example": "_shop.SetOnExit(function(_shop_instance) {\n    return false;\n});",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-config-set-on-main-open",
+            "name": "ShopConfig.SetOnMainOpen",
+            "signature": "ShopConfig.SetOnMainOpen(_callback)",
+            "kind": "método",
+            "category": "Callbacks",
+            "subcategory": "Menus",
+            "summary": "define callback ao abrir Main",
+            "purpose": "Guardar callback para entrada no menu principal.",
+            "whenToUse": "O ui_shop atual ainda não chama on_main_open.",
+            "parameters": [
+                {
+                    "name": "callback",
+                    "type": "function | undefined",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `callback` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopConfig",
+                "description": "A própria configuração (`self`) para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopConfig`."],
+            "notes": ["O `ui_shop` atual ainda não dispara este callback."],
+            "example": "_shopconfig.SetOnMainOpen(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-config-set-on-buy-open",
+            "name": "ShopConfig.SetOnBuyOpen",
+            "signature": "ShopConfig.SetOnBuyOpen(_callback)",
+            "kind": "método",
+            "category": "Callbacks",
+            "subcategory": "Menus",
+            "summary": "define callback ao abrir Buy",
+            "purpose": "Guardar callback para entrada em Buy.",
+            "whenToUse": "O ui_shop atual ainda não chama on_buy_open.",
+            "parameters": [
+                {
+                    "name": "callback",
+                    "type": "function | undefined",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `callback` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopConfig",
+                "description": "A própria configuração (`self`) para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopConfig`."],
+            "notes": ["O `ui_shop` atual ainda não dispara este callback."],
+            "example": "_shopconfig.SetOnBuyOpen(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-config-set-on-sell-open",
+            "name": "ShopConfig.SetOnSellOpen",
+            "signature": "ShopConfig.SetOnSellOpen(_callback)",
+            "kind": "método",
+            "category": "Callbacks",
+            "subcategory": "Menus",
+            "summary": "define callback ao abrir Sell",
+            "purpose": "Guardar callback para entrada em Sell.",
+            "whenToUse": "O ui_shop atual ainda não chama on_sell_open.",
+            "parameters": [
+                {
+                    "name": "callback",
+                    "type": "function | undefined",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `callback` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopConfig",
+                "description": "A própria configuração (`self`) para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopConfig`."],
+            "notes": ["O `ui_shop` atual ainda não dispara este callback."],
+            "example": "_shopconfig.SetOnSellOpen(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-config-set-on-talk-open",
+            "name": "ShopConfig.SetOnTalkOpen",
+            "signature": "ShopConfig.SetOnTalkOpen(_callback)",
+            "kind": "método",
+            "category": "Callbacks",
+            "subcategory": "Menus",
+            "summary": "define callback ao abrir Talk",
+            "purpose": "Guardar callback para entrada em Talk.",
+            "whenToUse": "O ui_shop atual ainda não chama on_talk_open.",
+            "parameters": [
+                {
+                    "name": "callback",
+                    "type": "function | undefined",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `callback` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopConfig",
+                "description": "A própria configuração (`self`) para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopConfig`."],
+            "notes": ["O `ui_shop` atual ainda não dispara este callback."],
+            "example": "_shopconfig.SetOnTalkOpen(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-config-set-on-talk-close",
+            "name": "ShopConfig.SetOnTalkClose",
+            "signature": "ShopConfig.SetOnTalkClose(_callback)",
+            "kind": "método",
+            "category": "Callbacks",
+            "subcategory": "Menus",
+            "summary": "define callback ao fechar Talk",
+            "purpose": "Guardar callback para saída do menu Talk.",
+            "whenToUse": "O ui_shop atual ainda não chama on_talk_close.",
+            "parameters": [
+                {
+                    "name": "callback",
+                    "type": "function | undefined",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `callback` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopConfig",
+                "description": "A própria configuração (`self`) para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopConfig`."],
+            "notes": ["O `ui_shop` atual ainda não dispara este callback."],
+            "example": "_shopconfig.SetOnTalkClose(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-config-set-on-buy",
+            "name": "ShopConfig.SetOnBuy",
+            "signature": "ShopConfig.SetOnBuy(_callback)",
+            "kind": "método",
+            "category": "Callbacks",
+            "subcategory": "Compra",
+            "summary": "define callback global pós-compra",
+            "purpose": "Executar código após qualquer compra bem-sucedida.",
+            "whenToUse": "A UI atual executa config.on_buy.",
+            "parameters": [
+                {
+                    "name": "callback",
+                    "type": "function | undefined",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `callback` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopConfig",
+                "description": "A própria configuração (`self`) para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopConfig`."],
+            "notes": [],
+            "example": "_shopconfig.SetOnBuy(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-config-set-on-sell",
+            "name": "ShopConfig.SetOnSell",
+            "signature": "ShopConfig.SetOnSell(_callback)",
+            "kind": "método",
+            "category": "Callbacks",
+            "subcategory": "Venda",
+            "summary": "define callback global pós-venda",
+            "purpose": "Executar código após qualquer venda bem-sucedida.",
+            "whenToUse": "A UI atual executa config.on_sell.",
+            "parameters": [
+                {
+                    "name": "callback",
+                    "type": "function | undefined",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `callback` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopConfig",
+                "description": "A própria configuração (`self`) para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopConfig`."],
+            "notes": [],
+            "example": "_shopconfig.SetOnSell(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-config-set-on-state-changed",
+            "name": "ShopConfig.SetOnStateChanged",
+            "signature": "ShopConfig.SetOnStateChanged(_callback)",
+            "kind": "método",
+            "category": "Callbacks",
+            "subcategory": "Estado",
+            "summary": "define callback de mudança de estado",
+            "purpose": "Observar transições entre MAIN/BUY/SELL/TALK/DIALOG etc.",
+            "whenToUse": "A UI atual executa on_state_changed.",
+            "parameters": [
+                {
+                    "name": "callback",
+                    "type": "function | undefined",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `callback` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopConfig",
+                "description": "A própria configuração (`self`) para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopConfig`."],
+            "notes": [],
+            "example": "_shopconfig.SetOnStateChanged(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-config-set-get-sell-price",
+            "name": "ShopConfig.SetGetSellPrice",
+            "signature": "ShopConfig.SetGetSellPrice(_callback)",
+            "kind": "método",
+            "category": "Venda",
+            "subcategory": "Callbacks dinâmicos",
+            "summary": "define preço dinâmico de venda",
+            "purpose": "Calcular preço de revenda em tempo de execução.",
+            "whenToUse": "A UI atual usa get_sell_price.",
+            "parameters": [
+                {
+                    "name": "callback",
+                    "type": "function | undefined",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `callback` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopConfig",
+                "description": "A própria configuração (`self`) para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopConfig`."],
+            "notes": [],
+            "example": "_shopconfig.SetGetSellPrice(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-config-set-format-sell-line",
+            "name": "ShopConfig.SetFormatSellLine",
+            "signature": "ShopConfig.SetFormatSellLine(_callback)",
+            "kind": "método",
+            "category": "Venda",
+            "subcategory": "Formatação",
+            "summary": "define linha customizada de Sell",
+            "purpose": "Customizar o texto de cada item em Sell.",
+            "whenToUse": "A UI atual usa format_sell_line.",
+            "parameters": [
+                {
+                    "name": "callback",
+                    "type": "function | undefined",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `callback` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopConfig",
+                "description": "A própria configuração (`self`) para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopConfig`."],
+            "notes": [],
+            "example": "_shopconfig.SetFormatSellLine(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-config-set-draw-background",
+            "name": "ShopConfig.SetDrawBackground",
+            "signature": "ShopConfig.SetDrawBackground(_callback)",
+            "kind": "método",
+            "category": "Aparência",
+            "subcategory": "Callbacks de desenho",
+            "summary": "define desenho de background",
+            "purpose": "Fornecer callback de desenho da parte superior.",
+            "whenToUse": "A UI atual executa draw_background.",
+            "parameters": [
+                {
+                    "name": "callback",
+                    "type": "function | undefined",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `callback` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopConfig",
+                "description": "A própria configuração (`self`) para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopConfig`."],
+            "notes": [],
+            "example": "_shopconfig.SetDrawBackground(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-config-set-draw-merchant",
+            "name": "ShopConfig.SetDrawMerchant",
+            "signature": "ShopConfig.SetDrawMerchant(_callback)",
+            "kind": "método",
+            "category": "Aparência",
+            "subcategory": "Callbacks de desenho",
+            "summary": "define desenho do comerciante",
+            "purpose": "Substituir o sprite padrão por desenho customizado.",
+            "whenToUse": "A UI atual executa draw_merchant.",
+            "parameters": [
+                {
+                    "name": "callback",
+                    "type": "function | undefined",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `callback` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopConfig",
+                "description": "A própria configuração (`self`) para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopConfig`."],
+            "notes": [],
+            "example": "_shopconfig.SetDrawMerchant(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-config-set-draw-foreground",
+            "name": "ShopConfig.SetDrawForeground",
+            "signature": "ShopConfig.SetDrawForeground(_callback)",
+            "kind": "método",
+            "category": "Aparência",
+            "subcategory": "Callbacks de desenho",
+            "summary": "define desenho de foreground",
+            "purpose": "Desenhar elementos por cima da UI/cena.",
+            "whenToUse": "A UI atual executa draw_foreground.",
+            "parameters": [
+                {
+                    "name": "callback",
+                    "type": "function | undefined",
+                    "required": true,
+                    "defaultValue": null,
+                    "description": "Valor de `callback` usado por esta operação do Shop System."
+                }
+            ],
+            "returns": {
+                "type": "ShopConfig",
+                "description": "A própria configuração (`self`) para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de `ShopConfig`."],
+            "notes": [],
+            "example": "_shopconfig.SetDrawForeground(...);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-config-set-list-indicator",
+            "name": "ShopConfig.SetListIndicator",
+            "signature": "ShopConfig.SetListIndicator(_enabled = true, _dot_sprite = undefined, _arrow_sprite = undefined)",
+            "kind": "método",
+            "category": "Aparência",
+            "subcategory": "Indicador de lista",
+            "summary": "ativa/desativa o indicador e permite trocar seus sprites",
+            "purpose": "Controlar o indicador visual das listas Buy, Sell e Talk usando por padrão os sprites do scrollbar do inventário de batalha.",
+            "whenToUse": "Use para remover o indicador da loja ou substituir os sprites padrão.",
+            "parameters": [
+                {
+                    "name": "enabled",
+                    "type": "boolean",
+                    "required": false,
+                    "defaultValue": "true",
+                    "description": "Define se o indicador de lista fica habilitado globalmente."
+                },
+                {
+                    "name": "dot_sprite",
+                    "type": "sprite asset | undefined",
+                    "required": false,
+                    "defaultValue": "undefined",
+                    "description": "Sprite dos pontos. `undefined` mantém `spr_battle_menu_item_scrollbar_dot` ou o valor já configurado."
+                },
+                {
+                    "name": "arrow_sprite",
+                    "type": "sprite asset | undefined",
+                    "required": false,
+                    "defaultValue": "undefined",
+                    "description": "Sprite das setas. `undefined` mantém `spr_battle_menu_item_scrollbar_arrow` ou o valor já configurado."
+                }
+            ],
+            "returns": {
+                "type": "ShopConfig",
+                "description": "A própria configuração (`self`) para encadeamento."
+            },
+            "sideEffects": [
+                "Altera propriedades de `ShopConfig` usadas pelo Draw da loja."
+            ],
+            "notes": [
+                "O indicador vem habilitado por padrão.",
+                "O Draw atual não mostra pontos quando a lista possui 0 ou 1 entrada."
+            ],
+            "example": "_shop.SetListIndicator(false);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-config-set-list-indicator-menus",
+            "name": "ShopConfig.SetListIndicatorMenus",
+            "signature": "ShopConfig.SetListIndicatorMenus(_buy = true, _sell = true, _talk = true)",
+            "kind": "método",
+            "category": "Aparência",
+            "subcategory": "Indicador de lista",
+            "summary": "escolhe em quais menus o indicador aparece",
+            "purpose": "Ativar ou desativar o indicador individualmente nas listas Buy, Sell e Talk.",
+            "whenToUse": "Use quando apenas alguns menus da loja devem mostrar o indicador.",
+            "parameters": [
+                {
+                    "name": "buy",
+                    "type": "boolean",
+                    "required": false,
+                    "defaultValue": "true",
+                    "description": "Exibe o indicador em Buy."
+                },
+                {
+                    "name": "sell",
+                    "type": "boolean",
+                    "required": false,
+                    "defaultValue": "true",
+                    "description": "Exibe o indicador em Sell."
+                },
+                {
+                    "name": "talk",
+                    "type": "boolean",
+                    "required": false,
+                    "defaultValue": "true",
+                    "description": "Exibe o indicador em Talk."
+                }
+            ],
+            "returns": {
+                "type": "ShopConfig",
+                "description": "A própria configuração (`self`) para encadeamento."
+            },
+            "sideEffects": [
+                "Altera as flags de indicador de Buy, Sell e Talk."
+            ],
+            "notes": [],
+            "example": "_shop.SetListIndicatorMenus(true, true, false);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        },
+        {
+            "slug": "shop-config-set-list-indicator-layout",
+            "name": "ShopConfig.SetListIndicatorLayout",
+            "signature": "ShopConfig.SetListIndicatorLayout(_x_offset = -16, _y = 170, _spacing = 10, _arrow_gap = 10, _arrow_bounce = 5)",
+            "kind": "método",
+            "category": "Aparência",
+            "subcategory": "Indicador de lista",
+            "summary": "configura posicionamento, espaçamento e animação do indicador",
+            "purpose": "Personalizar a posição horizontal dos pontos, distância entre entradas e comportamento visual das setas.",
+            "whenToUse": "Use para adaptar o indicador a um layout customizado da loja.",
+            "parameters": [
+                {
+                    "name": "x_offset",
+                    "type": "real",
+                    "required": false,
+                    "defaultValue": "-16",
+                    "description": "Offset X relativo ao divisor vertical da loja."
+                },
+                {
+                    "name": "y",
+                    "type": "real",
+                    "required": false,
+                    "defaultValue": "170",
+                    "description": "Valor armazenado em `list_indicator_y`; no Draw atual a posição vertical é centralizada automaticamente e este valor não é usado."
+                },
+                {
+                    "name": "spacing",
+                    "type": "real",
+                    "required": false,
+                    "defaultValue": "10",
+                    "description": "Distância vertical entre os pontos."
+                },
+                {
+                    "name": "arrow_gap",
+                    "type": "real",
+                    "required": false,
+                    "defaultValue": "10",
+                    "description": "Distância entre o conjunto de pontos e as setas de scroll."
+                },
+                {
+                    "name": "arrow_bounce",
+                    "type": "real",
+                    "required": false,
+                    "defaultValue": "5",
+                    "description": "Amplitude do pequeno movimento animado das setas."
+                }
+            ],
+            "returns": {
+                "type": "ShopConfig",
+                "description": "A própria configuração (`self`) para encadeamento."
+            },
+            "sideEffects": ["Altera propriedades de layout do indicador."],
+            "notes": [
+                "O Draw atual centraliza verticalmente o conjunto com `(panel_y + room_height) / 2`.",
+                "O argumento `y` permanece na API e é armazenado por compatibilidade, mas atualmente não altera o centro vertical."
+            ],
+            "example": "_shop.SetListIndicatorLayout(-16, 170, 10, 10, 5);",
+            "sourcePath": "scripts/ShopSystem/ShopSystem.gml",
+            "guideSlug": "shop-system"
+        }
+    ]
+}
